@@ -1,0 +1,39 @@
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    display:inline;
+}
+
+p { 
+    display: inline;
+    font-size: 20px;
+}
+
+.title {
+
+    font-size: 30px;
+    display: inline;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+button {
+
+    font-size: 30px;
+    display: inline-block;
+
+}
+
+.expand {
+
+    font-size: 15px;
+    display: inline;
+
+}
+
+.hidden {
+
+    display: none;
+
+}
