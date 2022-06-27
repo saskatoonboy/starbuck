@@ -17,6 +17,10 @@ class Customization {
 
     }
 
+    isValid() {
+        return this.source.isValid(this.value);
+    }
+
 }
 
 class QuantityCustomization extends Customization {
@@ -26,11 +30,11 @@ class QuantityCustomization extends Customization {
         if (value == undefined) {
             value = Amounts.NONE;
         }
-        this.amount = value;
+        this.value = value;
     }
 
     display() {
-        let text = Amounts.display(this.amount);
+        let text = Amounts.display(this.value);
         if (text == '') {
             return super.display();
         } else {
@@ -78,6 +82,7 @@ class EspressoDataCustomization extends DataCustomization {
             value = EspressoData.NORMAL;
         }
         this.value = value;
+        this.source = EspressoData;
     }
 
     display() {
@@ -94,6 +99,7 @@ class EspressoCustomization extends DataCustomization {
             value = EspressoData.SIGNATURE;
         }
         this.value = value;
+        this.source = EspressoData;
     }
 
     display() {
@@ -106,6 +112,7 @@ class ShotCustomization extends CountCustomization {
 
     constructor(value) {
         super('shots', value)
+        this.source = EspressoData;
     }
 
     display() {
@@ -125,6 +132,7 @@ class IceCustomization extends QuantityCustomization {
 
     constructor(value) {
         super('ice', value);
+        this.source = Amounts;
     }
 
 }
@@ -133,6 +141,7 @@ class MilkCustomization extends DataCustomization {
 
     constructor(value) {
         super('milk', value);
+        this.source = Milk;
     }
 
     display() {
@@ -150,6 +159,7 @@ class CupCustomization extends DataCustomization {
         }
         super(name, value);
         this.isSecondary = isSecondary;
+        this.source = Cup;
     }
 
     display() {
@@ -165,6 +175,7 @@ class WaterCustomization extends QuantityCustomization {
 
     constructor(value) {
         super('water', value);
+        this.source = Amounts;
     }
 
     display() {
@@ -177,6 +188,7 @@ class SyrupCustomization extends CountCustomization {
 
     constructor(id, value) {
         super(Syrup.NAMES[id], value);
+        this.source = Syrup;
     }
 
     display(normal) {
@@ -195,6 +207,7 @@ class ToppingCustomization extends QuantityCustomization {
 
     constructor(id, value) {
         super(Topping.NAMES[id], value);
+        this.source = Topping;
     }
 
 }
@@ -203,6 +216,7 @@ class WhipCustomization extends QuantityCustomization {
 
     constructor(value) {
         super('whip', value);
+        this.source = Amounts;
     }
 
 }
@@ -211,6 +225,7 @@ class FoamCustomization extends QuantityCustomization {
 
     constructor(value) {
         super('foam', value);
+        this.source = Amounts;
     }
 
 }
@@ -219,6 +234,7 @@ class ColdFoamCustomization extends QuantityCustomization {
 
     constructor(id, value) {
         super(ColdFoam.NAMES[id], value);
+        this.source = ColdFoam;
     }
 
 }
@@ -227,6 +243,7 @@ class SweetnerCustomization extends CountCustomization {
 
     constructor(id, value) {
         super(Sweetner.NAMES[id], value);
+        this.source = Sweetner;
     }
 
 }
@@ -235,6 +252,7 @@ class RoomCustomization extends QuantityCustomization {
 
     constructor(value) {
         super('room', value);
+        this.source = Amounts;
     }
 
 }
@@ -247,6 +265,7 @@ class MilkSplashCustomization extends QuantityCustomization {
         } else {
             super('splash of ' + Milk.NAMES[id], value);
         }
+        this.source = Milk;
     }
 
 }
@@ -255,6 +274,7 @@ class TempCustomization extends DataCustomization {
 
     constructor(value) {
         super('Temp', Temp.NAMES[value]);
+        this.source = Temp;
     }
 
 }
@@ -263,6 +283,7 @@ class TeaCustomization extends QuantityCustomization {
 
     constructor(id, value) {
         super(Tea.NAMES[id], value);
+        this.source = Tea;
     }
 
 }
@@ -271,6 +292,7 @@ class JuiceCustomization extends QuantityCustomization {
 
     constructor(id, value) {
         super(Juice.NAMES[id], value);
+        this.source = Juice;
     }
 
 }
@@ -279,6 +301,7 @@ class InclusionCustomization extends QuantityCustomization {
 
     constructor(id, value) {
         super(Inclusion.NAMES[id], value);
+        this.source = Inclusion;
     }
 
 }

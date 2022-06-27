@@ -19,6 +19,10 @@ class Milk {
     static display(value) {
         return Milk.NAMES[value];
     }
+
+    static isValid() {
+        return true;
+    }
 }
 
 class Tea {
@@ -32,6 +36,10 @@ class Tea {
     static PEACHTRANQUILITY = 6;
     static NAMES = ['Chai', 'Earl Grey', 'Royal English Breakfast', "Emperor's Cloud and Mist",
         'Jade Citrus Mint', 'Mint Majesty', 'Peach Tranquility'];
+
+    static isValid() {
+        return true;
+    }
 
 }
 
@@ -49,6 +57,10 @@ class Juice {
     static NAMES = ['Green Tea', 'Black Tea', 'Passion Tea', 'Strawberry Acai',
         'Mango Dragonfruit', 'Pinapple Passionfruit', 'Apple Juice', 'Peach Juice', 'Lemonade'];
 
+    static isValid() {
+        return true;
+    }
+
 }
 
 class Temp {
@@ -57,6 +69,10 @@ class Temp {
     static HOT = 1;
     static EXTRAHOT = 2;
     static NAMES = ['Warm', '', 'Extra Hot'];
+
+    static isValid() {
+        return true;
+    }
 
 }
 
@@ -72,6 +88,10 @@ class Inclusion {
     static NAMES = ['Vanilla Bean Powder', 'Frap Chips', 'Strawberry Incl', 'Dragonfruit Incl',
         'Passionfruit Incl', 'Matcha', 'Strawberry Puree'];
 
+    static isValid() {
+        return true;
+    }
+
 }
 
 class Amounts {
@@ -84,6 +104,11 @@ class Amounts {
     static display(value) {
         return Amounts.NAMES[value];
     }
+
+    static isValid() {
+        return true;
+    }
+
 }
 
 class Topping {
@@ -103,7 +128,13 @@ class Topping {
     static NAMES = ['Cinnamon Dolce Topping', 'Cinnamon Powder', 'Caramel Crunch Topping',
         'Cookie Crumble Topping', 'Red and Green Sprinkles', 'Salted Brown Butter Topping',
         'Cocoa Powder', 'Caramel Brulee', 'Cocolate Curls', 'Pumkin Spice Topping', 'Mocha Drizzle',
-        'Caramel Drizzle']
+        'Caramel Drizzle'];
+
+    static inVaild = [4, 5, 6, 7, 8, 9];
+
+    static isValid(value) {
+        return !this.inVaild.includes(value);
+    }
 
 }
 
@@ -116,6 +147,10 @@ class Sweetner {
     static STEVIA = 0;
     static NAMES = ['Sugar', 'Raw Sugar', 'Honey', 'Splenda', 'Stevia'];
 
+    static isValid() {
+        return true;
+    }
+
 }
 
 class ColdFoam {
@@ -127,6 +162,12 @@ class ColdFoam {
     static IRISHCREAM = 4;
     static NAMES = ['Vanilla Sweet Cream Cold Foam', 'Chocolate Cream Cold Foam',
         'Salted Caramel Cream Cold Foam', 'Pumkin Cream Cold Foam', 'Irish Cream Cold Foam'];
+
+    static inVaild = [3, 4];
+
+    static isValid(value) {
+        return !this.inVaild.includes(value);
+    }
 
 }
 
@@ -160,6 +201,11 @@ class Syrup {
         'White Mocha', 'Pistachio', 'Frap Roast', 'Pumpkin Spice', 'Caramel Brulee', 'Irish Cream',
         'Sugar Cookie', 'Chai', 'Classic', 'Liquid Cane Sugar', 'Honey Blend'];
 
+    static inVaild = [13, 15, 16, 17, 18];
+
+    static isValid(value) {
+        return !this.inVaild.includes(value);
+    }
 }
 
 class Cup {
@@ -172,6 +218,10 @@ class Cup {
 
     static display(value) {
         return Amounts.NAMES[value];
+    }
+
+    static isValid() {
+        return true;
     }
 }
 
@@ -202,5 +252,9 @@ class EspressoData {
 
     static displayMethod(amount) {
         return EspressoData.NAMES[amount];
+    }
+
+    static isValid() {
+        return true;
     }
 }
