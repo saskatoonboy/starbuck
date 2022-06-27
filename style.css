@@ -6,22 +6,42 @@ input[type=checkbox] {
 
 p { 
     display: inline;
-    font-size: 20px;
+    font-size: 15px;
+}
+
+div {
+
+    display: 'block';
+
+}
+
+.subGroup {
+
+    font-size: 25px;
+    display: inline;
+
 }
 
 .title {
 
-    font-size: 30px;
+    font-size: 35px;
     display: inline;
     margin-bottom: 10px;
     margin-top: 10px;
 
 }
 
-button {
+.group {
 
     font-size: 30px;
-    display: inline-block;
+    display: block;
+
+}
+
+.mainbutton {
+
+    font-size: 30px;
+    display: inline;
 
 }
 

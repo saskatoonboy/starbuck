@@ -3,15 +3,14 @@
 
 <head>
   <link rel="stylesheet" href="style.css">
-  <script src="custom.js"></script>
 </head>
 
 <body>
 
   <div>
 
-    <button type="button" onclick="openSettings();" id="settingsButton">Settings</button>
-    <button type="button" onclick="while(!makeDrink());" id="newDrinkButton">New Drink</button>
+    <button type="button" class='mainbutton' onclick="settings.open();" id="settingsButton">Settings</button>
+    <button type="button" class='mainbutton' onclick="generateDrink();" id="newDrinkButton">New Drink</button>
   </div>
 
   <div>
@@ -225,8 +224,14 @@
   <p id='output' style="font-size: 30px"></p>
 
 </body>
-<script src="saving.js"></script>
+<script src="map.js"></script>
+<script src="init.js"></script>
 <script src="settings.js"></script>
+<script src="drink.js"></script>
+<script src="brewedCoffee.js"></script>
+<script src="espresso.js"></script>
+<script src="lattes.js"></script>
+<script src="saving.js"></script>
 <script src="sketch.js"></script>
 
 </html>

@@ -1,206 +1,456 @@
 
-const sizesDiv = document.getElementById('sizes');
-const flavourDiv = document.getElementById('flavour');
-const iceDiv = document.getElementById('ice');
-const whipDiv = document.getElementById('whip');
-const milkDiv = document.getElementById('milk');
-const espressoDiv = document.getElementById('espressoDiv');
-const coldDiv = document.getElementById('coldBar');
-const hotDiv = document.getElementById('hotBar');
-const sizeCheckboxes = [document.getElementById('short'), document.getElementById('tall'), document.getElementById('grande'), document.getElementById('venti'), document.getElementById('trenta')];
-const iceValues = [document.getElementById('noIce'), document.getElementById('lightIce'), document.getElementById('normalIce'), document.getElementById('extraIce')];
-const espressoValues = [document.getElementById('decaf'), document.getElementById('normal'), document.getElementById('blonde')];
-const whipValues = [document.getElementById('noWhip'), document.getElementById('lightWhip'), document.getElementById('normalWhip'), document.getElementById('extraWhip')];
-const milkValues = [document.getElementById('nonfatMilk'), document.getElementById('oneMilk'), document.getElementById('twoMilk'), document.getElementById('wholeMilk'), document.getElementById('lactaidMilk'), document.getElementById('coconutMilk'), document.getElementById('almondMilk'), document.getElementById('soyMilk'), document.getElementById('oatMilk'), document.getElementById('heavyCream'), document.getElementById('breve')];
-const newMilkChance = document.getElementById('changeMilk');
-const newWhipChance = document.getElementById('changeWhip');
-const newEspressoChance = document.getElementById('changeEspresso');
-const maxFlavours = document.getElementById('maxFlavour');
-const minSweetness = document.getElementById('minSweet');
-const maxSweetness = document.getElementById('maxSweet');
+class Settings {
 
-const drinkEnables = {
+    constructor() {
 
-  refreshers: document.getElementById('refreshers'),
-  icedTea: document.getElementById('icedTea'),
-  frappuccino: document.getElementById('frappuccino'),
-  icedCoffee: document.getElementById('icedCoffee'),
-  coldBrew: document.getElementById('coldBrew'),
-  other: document.getElementById('other'),
-  latte: document.getElementById('latte'),
-  brewedTea: document.getElementById('brewedTea'),
-  otherTea: document.getElementById('otherTea'),
-  brewedCoffee: document.getElementById('brewedCoffee'),
-  americano: document.getElementById('americano'),
-  steamedMilk: document.getElementById('steamedMilk'),
-  appleJuice: document.getElementById('appleJuice'),
-  espresso: document.getElementById('espresso'),
+        this.settings = [];
+        this.groups = [];
+        this.opened = true;
+        this.button = document.getElementById('settingsButton');
 
-}
+    }
 
-const expansions = {
+    collapse() {
 
-  espresso: document.getElementById('espressoExpansion'),
-  flavours: document.getElementById('flavoursExpansion'),
-  whip: document.getElementById('whipExpansion'),
-  milk: document.getElementById('milkExpansion'),
-  cold: document.getElementById('coldExpansion'),
-  hot: document.getElementById('hotExpansion'),
-  coldSimple: document.getElementById('coldSimple'),
-  hotSimple: document.getElementById('hotSimple')
+        for (let group of this.groups) {
 
-}
+            group.collapse();
 
-function expandHot() {
+        }
 
-  if (isHidden(expansions.hot)) {
-    hide(expansions.hotSimple);
-    reveal(expansions.hot, true);
-  } else {
-    reveal(expansions.hotSimple, true);
-    hide(expansions.hot);
-  }
+    }
 
-}
+    addSetting(setting) {
+        this.settings.push(setting);
+    }
 
-function expandCold() {
-  if (isHidden(expansions.cold)) {
-    hide(expansions.coldSimple);
-    reveal(expansions.cold, true);
-  } else {
-    reveal(expansions.coldSimple, true);
-    hide(expansions.cold);
-  }
-}
+    addGroup(group) {
+        this.groups.push(group);
+    }
 
-function expandWhip() {
-  if (isHidden(expansions.whip)) {
-    reveal(expansions.whip, true);
-  } else {
-    hide(expansions.whip);
-  }
-}
+    close() {
 
-function expandMilk() {
-  if (isHidden(expansions.milk)) {
-    reveal(expansions.milk, true);
-  } else {
-    hide(expansions.milk);
-  }
-}
+        for (let group of settings.groups) {
+            group.hide();
+        }
+        settings.button.onclick = settings.open;
+        settings.button.innerHTML = 'Settings'
+        Group.showDiv(drinkButton);
 
-function expandEspresso() {
-  if (isHidden(expansions.espresso)) {
-    reveal(expansions.espresso, true);
-  } else {
-    hide(expansions.espresso);
-  }
-}
+    }
 
-function expandFlavour() {
-  if (isHidden(expansions.flavours)) {
-    reveal(expansions.flavours, true);
-  } else {
-    hide(expansions.flavours);
-  }
-}
+    open() {
 
-function unselectColdBar() {
-
-    const selections = ['refreshers','icedTea','frappuccino','icedCoffee','coldBrew','other'];
-
-    for (let i = 0; i < selections.length; i++) {
-
-        drinkEnables[selections[i]].checked = false;
+        for (let group of settings.groups) {
+            group.show();
+        }
+        settings.button.onclick = settings.close;
+        settings.button.innerHTML = 'Save Settings'
+        Group.hideDiv(drinkButton);
 
     }
 
 }
 
-function selectColdBar() {
+let settings = new Settings();
 
-    const selections = ['refreshers','icedTea','frappuccino','icedCoffee','coldBrew','other'];
+class Setting {
 
-    for (let i = 0; i < selections.length; i++) {
+    constructor(name, group) {
+        
+        settings.addSetting(this);
+        this.label = document.createElement('p');
+        this.label.innerHTML = name;
+        if (group) {
+            group.add(this.label);
+        } 
 
-        drinkEnables[selections[i]].checked = true;
+    } 
 
-    }
+    isEnabled() {
 
-}
-
-function unselectHotBar() {
-
-    const selections = ['latte','brewedTea','otherTea','brewedCoffee','americano','steamedMilk','appleJuice','espresso'];
-
-    for (let i = 0; i < selections.length; i++) {
-
-        drinkEnables[selections[i]].checked = false;
-
-    }
-
-}
-
-function selectHotBar() {
-
-    const selections = ['latte','brewedTea','otherTea','brewedCoffee','americano','steamedMilk','appleJuice','espresso'];
-
-    for (let i = 0; i < selections.length; i++) {
-
-        drinkEnables[selections[i]].checked = true;
+        return this.element.value;
 
     }
 
 }
 
-function isHidden(ele) {
+class CheckboxSetting extends Setting {
 
-  return ele.style.display == 'none' || ele.style.display == '';
+    constructor(name, group, value) {
 
-}
+        super(name, group);
+        this.element = document.createElement('input');
+        this.element.type = 'checkbox';
+        this.element.checked = value;
 
-function hide(ele) {
-  ele.style.display = 'none';
-}
+        group.add(this.element);
 
-function reveal(ele, line) {
-  if (line) {
-    ele.style.display = 'block';
-  } else {
-    ele.style.display = 'inline';
-  }
-}
-
-function openSettings() {
-    if (outputText.style.display == 'none') {
-      outputText.style.display = '';
-      drinkButton.style.display = 'inline-block';
-      settingsButton.innerHTML = 'Settings';
-      hide(sizesDiv);
-      hide(flavourDiv);
-      hide(iceDiv);
-      hide(whipDiv);
-      hide(milkDiv);
-      hide(coldDiv);
-      hide(hotDiv);
-      hide(espressoDiv);
-      if (!(sizeCheckboxes[1].checked || sizeCheckboxes[2].checked || sizeCheckboxes[3].checked)) {
-        sizeCheckboxes[2].checked = true;
-      }
-      saveSettings();
-  
-    } else {
-      hide(outputText);
-      drinkButton.style.display = 'none';
-      settingsButton.innerHTML = 'Save Settings';
-      reveal(sizesDiv);
-      reveal(flavourDiv);
-      reveal(iceDiv);
-      reveal(whipDiv);
-      reveal(milkDiv);
-      reveal(coldDiv);
-      reveal(hotDiv);
-      reveal(espressoDiv);
     }
-  
-  }
+
+    isEnabled() {
+
+        return this.element.checked;
+
+    }
+
+}
+
+class DrinkSetting extends CheckboxSetting {
+
+    constructor(name, group, value) {
+        
+        if (typeof(group) == 'string') {
+            group = new ExpandableGroup(group);
+        }
+
+        super(name, group, value);
+
+    }
+
+}
+
+class Group {
+
+    constructor(title) {
+
+        settings.addGroup(this);
+        this.div = document.createElement('div');
+        this.elementDiv = document.createElement('div');
+        this.title = document.createElement('p');
+        this.title.className = 'title';
+        this.title.innerHTML = title;
+        this.div.appendChild(this.title);
+        this.div.appendChild(this.elementDiv);
+        document.body.appendChild(this.div);
+
+    }
+
+    add(element) {
+
+        this.elementDiv.appendChild(element);
+
+    }
+
+    hide() {
+
+        this.hideDiv(this.div);
+
+    }
+
+    show() {
+
+        this.showDiv(this.div);
+
+    }
+
+    isHidden(ele) {
+    
+      return ele.style.display == 'none' || ele.style.display == '';
+    
+    }
+
+    hideElement(ele) {
+      ele.style.display = 'none';
+    }
+
+    static hideElement(ele) {
+      ele.style.display = 'none';
+    }
+    
+    showElement(ele) {
+        ele.style.display = 'block';
+    }
+    
+    static showElement(ele) {
+        ele.style.display = 'block';
+    }
+
+    hideDiv(ele) {
+      ele.style.display = 'none';
+    }
+
+    static hideDiv(ele) {
+      ele.style.display = 'none';
+    }
+    
+    showDiv(ele) {
+        ele.style.display = 'inline';
+      
+    }
+    
+    static showDiv(ele) {
+        ele.style.display = 'inline';
+      
+    }
+
+}
+
+class SubGroup extends Group {
+
+    constructor(group, title)  {
+
+        super(title);
+        this.group = group;
+        this.group.div.appendChild(this.div)
+
+
+    }
+
+}
+
+class ExpandableSubGroup extends SubGroup {
+
+    constructor(group, title) {
+
+        super(group, title);
+        this.expansionDiv = document.createElement('div');
+        this.expandButton = document.createElement('button');
+        this.collapseButton = document.createElement('button');
+        this.group.div.removeChild(this.div);
+        this.group.div.appendChild(this.expansionDiv);
+        this.div.className = 'subGroup';
+        this.expansionDiv.className = 'subGroup';
+        title = this.div.children[0];
+        title.className = 'subGroup';
+        this.div.removeChild(title);
+        this.expansionDiv.appendChild(this.title)
+        this.expansionDiv.appendChild(this.expandButton);
+        this.expansionDiv.appendChild(this.collapseButton);
+        this.expansionDiv.appendChild(this.div);
+        this.expandButton.innerHTML = 'Expand';
+        this.collapseButton.innerHTML = 'Collapse';
+        this.expandButton.className = 'expand';
+        this.collapseButton.className = 'expand';
+        this.expandButton.onclick = this.buttonExpand;
+        this.collapseButton.onclick = this.buttonCollapse;
+        this.expandButton.id = String(settings.groups.length-1);
+        this.collapseButton.id = String(settings.groups.length-1);
+        if (this.group instanceof ExpandableParentGroup) {
+            this.group.registerChild(this);
+        }
+
+    }
+
+    hide() {
+
+        this.hideElement(this.expansionDiv);
+
+    }
+
+    show() {
+
+        this.showElement(this.expansionDiv);
+
+    }
+
+    buttonExpand() {
+
+        settings.groups[parseInt(this.id)].expand();
+
+    }
+
+    expand() {
+
+        this.showDiv(this.div);
+
+    }
+
+    buttonCollapse() {
+
+        settings.groups[parseInt(this.id)].collapse();
+
+    }
+
+    collapse() {
+
+        this.hideDiv(this.div);
+
+    }
+
+}
+
+class ExpandableGroup extends Group {
+
+    constructor(title) {
+
+        super(title);
+        this.expansionDiv = document.createElement('div');
+        this.expandButton = document.createElement('button');
+        this.collapseButton = document.createElement('button');
+        document.body.removeChild(this.div);
+        document.body.appendChild(this.expansionDiv);
+        this.div.className = 'group';
+        this.expansionDiv.className = 'group';
+        title = this.div.children[0];
+        this.div.removeChild(title);
+        this.expansionDiv.appendChild(this.title)
+        this.expansionDiv.appendChild(this.expandButton);
+        this.expansionDiv.appendChild(this.collapseButton);
+        this.expansionDiv.appendChild(this.div);
+        this.expandButton.innerHTML = 'Expand';
+        this.collapseButton.innerHTML = 'Collapse';
+        this.expandButton.className = 'expand';
+        this.collapseButton.className = 'expand';
+        this.expandButton.onclick = this.buttonExpand;
+        this.collapseButton.onclick = this.buttonCollapse;
+        this.expandButton.id = String(settings.groups.length-1);
+        this.collapseButton.id = String(settings.groups.length-1);
+
+    }
+
+    hide() {
+
+        this.hideElement(this.expansionDiv);
+
+    }
+
+    show() {
+
+        this.showElement(this.expansionDiv);
+
+    }
+
+    buttonExpand() {
+
+        settings.groups[parseInt(this.id)].expand();
+
+    }
+
+    expand() {
+
+        this.showDiv(this.div);
+
+    }
+
+    buttonCollapse() {
+
+        settings.groups[parseInt(this.id)].collapse();
+
+    }
+
+    collapse() {
+
+        this.hideDiv(this.div);
+
+    }
+
+}
+
+class ExpandableParentGroup extends ExpandableGroup {
+
+    constructor(title) {
+
+        super(title);
+        this.selectButton = document.createElement('button');
+        this.unselectButton = document.createElement('button');
+        this.expansionDiv.removeChild(this.div);
+        this.expansionDiv.appendChild(this.selectButton);
+        this.expansionDiv.appendChild(this.unselectButton);
+        this.expansionDiv.appendChild(this.div);
+        this.selectButton.innerHTML = 'Select All';
+        this.unselectButton.innerHTML = 'Unselect All';
+        this.selectButton.className = 'expand';
+        this.unselectButton.className = 'expand';
+        this.selectButton.onclick = this.buttonSelect;
+        this.unselectButton.onclick = this.buttonUnselect;
+        this.selectButton.id = String(settings.groups.length-1);
+        this.unselectButton.id = String(settings.groups.length-1);
+        this.children = [];
+
+    }
+
+    registerChild(group) {
+
+        this.children.push(group);
+
+    }
+
+    select() {
+        for (let child of this.children) {
+            for (let element of child.elementDiv.children) {
+                element.checked = true;
+            }
+        }
+    }
+
+    unselect() {
+        for (let child of this.children) {
+            for (let element of child.elementDiv.children) {
+                element.checked = false;
+            }
+        }
+    }
+
+    buttonSelect() {
+
+        settings.groups[parseInt(this.id)].select();
+
+    }
+
+    buttonUnselect() {
+
+        settings.groups[parseInt(this.id)].unselect();
+
+    }
+
+}
+
+class ExpandableMiddleGroup extends ExpandableSubGroup {
+
+    constructor(title, group) {
+
+        super(title, group);
+        this.selectButton = document.createElement('button');
+        this.unselectButton = document.createElement('button');
+        this.expansionDiv.removeChild(this.div);
+        this.expansionDiv.appendChild(this.selectButton);
+        this.expansionDiv.appendChild(this.unselectButton);
+        this.expansionDiv.appendChild(this.div);
+        this.selectButton.innerHTML = 'Select All';
+        this.unselectButton.innerHTML = 'Unselect All';
+        this.selectButton.className = 'expand';
+        this.unselectButton.className = 'expand';
+        this.selectButton.onclick = this.buttonSelect;
+        this.unselectButton.onclick = this.buttonUnselect;
+        this.selectButton.id = String(settings.groups.length-1);
+        this.unselectButton.id = String(settings.groups.length-1);
+        this.children = [this];
+
+    }
+
+    registerChild(group) {
+
+        this.children.push(group);
+
+    }
+
+    select() {
+        for (let child of this.children) {
+            for (let element of child.elementDiv.children) {
+                element.checked = true;
+            }
+        }
+    }
+
+    unselect() {
+        for (let child of this.children) {
+            for (let element of child.elementDiv.children) {
+                element.checked = false;
+            }
+        }
+    }
+
+    buttonSelect() {
+
+        settings.groups[parseInt(this.id)].select();
+
+    }
+
+    buttonUnselect() {
+
+        settings.groups[parseInt(this.id)].unselect();
+
+    }
+
+}
