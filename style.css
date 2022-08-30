@@ -22,9 +22,27 @@ div {
 
 }
 
-.title {
+.title1 {
 
     font-size: 35px;
+    display: inline;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.title2 {
+
+    font-size: 30px;
+    display: inline;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.title3 {
+
+    font-size: 25px;
     display: inline;
     margin-bottom: 10px;
     margin-top: 10px;

@@ -15,7 +15,7 @@ class Drink {
             capName = capName + word.charAt(0).toUpperCase() + word.substring(1).toLowerCase() + ' ';
         }
         capName = capName.substring(0, capName.length-1);
-        new DrinkSetting(capName, group, active);
+        new CheckboxSetting(capName, group, active);
         this.cusomizations = new CustomizationHolder();
 
     }
@@ -28,7 +28,7 @@ class Drink {
 
 class HotDrink extends Drink {
 
-    static group = new ExpandableParentGroup('Hot Drinks');
+    static group = new Group('Hot Drinks', undefined, true);
 
     constructor(name, active, drinkType) {
         if (drinkType == undefined) {
@@ -42,7 +42,7 @@ class HotDrink extends Drink {
 
 class ColdDrink extends Drink {
 
-    static group = new ExpandableParentGroup('Cold Drinks');
+    static group = new Group('Cold Drinks', undefined, true);
 
     constructor(name, active, drinkType) {
         if (drinkType == undefined) {

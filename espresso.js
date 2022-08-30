@@ -1,7 +1,7 @@
 
 class Espresso extends HotDrink {
 
-    static group = new ExpandableMiddleGroup(HotDrink.group, 'Espressos');
+    static group = new Group('Espressos', HotDrink.group, true);
 
     constructor(name, drinkType) {
 
@@ -17,7 +17,7 @@ class Espresso extends HotDrink {
 
 class Americano extends HotDrink {
 
-    static group = new ExpandableMiddleGroup(HotDrink.group, 'Americanos');
+    static group = new Group('Americanos', HotDrink.group, true);
 
     constructor(name, drinkType) {
 
@@ -93,7 +93,7 @@ class EspressoMacchiato extends Espresso {
 
 class IcedAmericano extends ColdDrink {
 
-    static group = new ExpandableMiddleGroup(ColdDrink.group, 'Americanos');
+    static group = new Group('Americanos', ColdDrink.group, true);
 
     constructor() {
         super('iced americano', IcedAmericano);
@@ -103,7 +103,7 @@ class IcedAmericano extends ColdDrink {
 
 class IcedEspresso extends ColdDrink {
 
-    static group = new ExpandableMiddleGroup(ColdDrink.group, 'Espressos');
+    static group = new Group('Espressos', ColdDrink.group, true);
 
     constructor() {
         super('iced espresso', IcedEspresso);

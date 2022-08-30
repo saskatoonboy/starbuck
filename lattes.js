@@ -1,7 +1,7 @@
 
 class Latte extends HotDrink {
 
-    static group = new ExpandableMiddleGroup(HotDrink.group, 'Lattes')
+    static group = new Group('Lattes', HotDrink.group, true)
 
     constructor(name, drinkType) {
         if (name == undefined) {
@@ -83,7 +83,7 @@ class WhiteMocha extends Latte {
 
 class IcedLatte extends ColdDrink {
 
-    static group = new ExpandableMiddleGroup(ColdDrink.group, 'Lattes')
+    static group = new Group('Lattes', ColdDrink.group, true)
 
     constructor(name, drinkType) {
         if (name == undefined) {

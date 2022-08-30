@@ -1,7 +1,8 @@
 
+// Basic Brewed Coffee, based off of the genereric Hot Drink
 class BrewedCoffee extends HotDrink {
 
-    static group = new ExpandableMiddleGroup(HotDrink.group, 'Brewed Coffee');
+    static group = new Group( 'Brewed Coffee', HotDrink.group, true);
 
     constructor(name, drinkType) {
         super(name, false, drinkType);
@@ -79,7 +80,7 @@ class BlondeRoast extends BrewedCoffee {
 
 class ColdBrew extends ColdDrink {
 
-    static group = new ExpandableMiddleGroup(ColdDrink.group, 'Cold Brew');
+    static group = new Group('Cold Brew', ColdDrink.group, true);
 
     constructor(name, drinkType) {
         if (name == undefined) {
@@ -161,7 +162,7 @@ class PumkinCreamColdBrew extends FlavouredColdBrew {
 
 class IcedCoffee extends ColdDrink {
 
-    static group = new ExpandableMiddleGroup(ColdDrink.group, 'Iced Coffee');
+    static group = new Group('Iced Coffee', ColdDrink.group, true);
 
     constructor(name, drinkType) {
         if (name == undefined) {
