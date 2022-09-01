@@ -2,6 +2,8 @@
 // basic frappucino
 class Frappucino extends ColdDrink {
 
+    static group = new Group('Blended', ColdDrink.group, true);
+
     constructor(name, drinkType) {
 
         super(name, drinkType);
@@ -240,6 +242,8 @@ class CaramelFrappucino extends WhipCoffeeFrappucino {
 
 // blended strawberry lemonade
 class BlendedStrawberryLemonade extends ColdDrink {
+
+    static group = Frappucino.group;
 
     constructor() {
         super('blended strawberry lemonade', BlendedStrawberryLemonade);
