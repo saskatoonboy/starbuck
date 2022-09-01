@@ -244,7 +244,6 @@ class Group {
 
     buttonExpand() {
 
-            console.log('Starting to expand');
             settings.groups[parseInt(this.id)].expand();
 
     }
@@ -253,7 +252,6 @@ class Group {
 
         if (this.isExpandable) {
 
-            console.log('Expanding');
             this.showDiv(this.elementDiv);
 
         }
@@ -261,7 +259,6 @@ class Group {
 
     buttonCollapse() {
 
-            console.log('Starting to collapse');
             settings.groups[parseInt(this.id)].collapse();
 
 
@@ -271,7 +268,6 @@ class Group {
 
         if (this.isExpandable) {
 
-            console.log('Collapsing');
             this.hideDiv(this.elementDiv);
 
         }

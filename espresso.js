@@ -1,6 +1,8 @@
 
+// basic espresso drink
 class Espresso extends HotDrink {
 
+    // create a settings group for espressos
     static group = new Group('Espressos', HotDrink.group, true);
 
     constructor(name, drinkType) {
@@ -15,8 +17,10 @@ class Espresso extends HotDrink {
 
 }
 
+// basic americano drink
 class Americano extends HotDrink {
 
+    // create a settings group for americanos
     static group = new Group('Americanos', HotDrink.group, true);
 
     constructor(name, drinkType) {
@@ -31,9 +35,8 @@ class Americano extends HotDrink {
 
 }
 
+// basic americano misto drink
 class AmericanoMisto extends Americano {
-
-    static group = Americano.group;
 
     constructor(name, drinkType) {
 
@@ -47,9 +50,8 @@ class AmericanoMisto extends Americano {
 
 }
 
+// brown sugar oat americano misto
 class BrownSugarOatAmericanoMisto extends AmericanoMisto {
-
-    static group = Americano.group;
 
     constructor() {
 
@@ -59,9 +61,8 @@ class BrownSugarOatAmericanoMisto extends AmericanoMisto {
 
 }
 
+// irish cream americano misto
 class IrishCreamAmericanoMisto extends AmericanoMisto {
-
-    static group = Americano.group;
 
     constructor() {
         super('irish cream americano misto', IrishCreamAmericanoMisto);
@@ -70,9 +71,8 @@ class IrishCreamAmericanoMisto extends AmericanoMisto {
 
 }
 
+// espresso con panna
 class EspressoConPanna extends Espresso {
-
-    static group = Espresso.group;
 
     constructor() {
         super('espresso con panna', EspressoConPanna);
@@ -81,9 +81,8 @@ class EspressoConPanna extends Espresso {
     
 }
 
+// espresso macchiato
 class EspressoMacchiato extends Espresso {
-
-    static group = Espresso.group;
 
     constructor() {
         super('espresso macchiato', EspressoMacchiato);
@@ -91,6 +90,7 @@ class EspressoMacchiato extends Espresso {
 
 }
 
+// iced version of the basic americano drink
 class IcedAmericano extends ColdDrink {
 
     static group = new Group('Americanos', ColdDrink.group, true);
@@ -101,6 +101,7 @@ class IcedAmericano extends ColdDrink {
 
 }
 
+// iced versin of the basic espresso drink
 class IcedEspresso extends ColdDrink {
 
     static group = new Group('Espressos', ColdDrink.group, true);
@@ -111,6 +112,7 @@ class IcedEspresso extends ColdDrink {
 
 }
 
+// basic iced shaken espresso
 class IcedShakenEspresso extends ColdDrink {
     
     static group = IcedEspresso.group;
@@ -125,6 +127,7 @@ class IcedShakenEspresso extends ColdDrink {
 
 }
 
+// iced toasted vanilla oat shaken espresso
 class IcedToastedVanillaOatShakenEspresso extends IcedShakenEspresso {
 
     static group = IcedEspresso.group;
@@ -134,6 +137,7 @@ class IcedToastedVanillaOatShakenEspresso extends IcedShakenEspresso {
     }
 }
 
+// iced brown sugar oat shaken espresso
 class IcedBrownSugarOatBeverageShakenEspresso extends IcedShakenEspresso {
 
     static group = IcedEspresso.group;
@@ -142,16 +146,3 @@ class IcedBrownSugarOatBeverageShakenEspresso extends IcedShakenEspresso {
         super('iced brown sugar oat beverage shaken espresso', IcedBrownSugarOatBeverageShakenEspresso);
     }
 }
-
-new Espresso();
-new EspressoConPanna();
-new EspressoMacchiato();
-new Americano();
-new AmericanoMisto();
-new IcedAmericano();
-new IrishCreamAmericanoMisto();
-new BrownSugarOatAmericanoMisto();
-new IcedAmericano();
-new IcedShakenEspresso();
-new IcedBrownSugarOatBeverageShakenEspresso();
-new IcedToastedVanillaOatShakenEspresso();

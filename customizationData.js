@@ -160,7 +160,7 @@ class ColdFoam {
     static SALTEDCARAMELCREAM = 2;
     static PUMKINCREAM = 3;
     static IRISHCREAM = 4;
-    static NAMES = ['Vanilla Sweet Cream Cold Foam', 'Chocolate Cream Cold Foam',
+    static NAMES = ['Vanilla Sweet Cream Cold Foam', 'Mocha Cream Cold Foam',
         'Salted Caramel Cream Cold Foam', 'Pumkin Cream Cold Foam', 'Irish Cream Cold Foam'];
 
     static inVaild = [3, 4];

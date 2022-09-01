@@ -2,6 +2,7 @@
 // Basic Brewed Coffee, based off of the genereric Hot Drink
 class BrewedCoffee extends HotDrink {
 
+    // add the brewed coffee to a settings group
     static group = new Group( 'Brewed Coffee', HotDrink.group, true);
 
     constructor(name, drinkType) {
@@ -10,6 +11,7 @@ class BrewedCoffee extends HotDrink {
 
 }
 
+// Basic Cafe Misto, based off of the genereric Brewed Coffee
 class CafeMisto extends BrewedCoffee {
 
     constructor(name, drinkType) {
@@ -18,9 +20,8 @@ class CafeMisto extends BrewedCoffee {
 
 }
 
+// A specific drink for a dark roast cafe misto
 class DarkRoastMisto extends CafeMisto {
-
-    static group = BrewedCoffee.group;
 
     constructor() {
         super('dark roast misto',  DarkRoastMisto);
@@ -28,9 +29,8 @@ class DarkRoastMisto extends CafeMisto {
 
 }
 
+// A specific drink for a pike roast cafe misto
 class PikeRoastMisto extends CafeMisto {
-
-    static group = BrewedCoffee.group;
 
     constructor() {
         super('pike place roast misto',  PikeRoastMisto);
@@ -38,9 +38,8 @@ class PikeRoastMisto extends CafeMisto {
 
 }
 
+// A specific drink for a blonde roast cafe misto
 class BlondeRoastMisto extends CafeMisto {
-
-    static group = BrewedCoffee.group;
 
     constructor() {
         super('blonde roast misto',  BlondeRoastMisto);
@@ -48,9 +47,8 @@ class BlondeRoastMisto extends CafeMisto {
 
 }
 
+// A specific drink for a dark roast brewed coffee
 class DarkRoast extends BrewedCoffee {
-
-    static group = BrewedCoffee.group;
 
     constructor() {
         super('dark roast',  DarkRoast);
@@ -58,9 +56,8 @@ class DarkRoast extends BrewedCoffee {
 
 }
 
+// A specific drink for a dark roast brewed coffee
 class PikeRoast extends BrewedCoffee {
-
-    static group = BrewedCoffee.group;
 
     constructor() {
         super('pike place roast',  PikeRoast);
@@ -68,9 +65,8 @@ class PikeRoast extends BrewedCoffee {
 
 }
 
+// A specific drink for a dark roast brewed coffee
 class BlondeRoast extends BrewedCoffee {
-
-    static group = BrewedCoffee.group;
 
     constructor() {
         super('blonde roast',  BlondeRoast);
@@ -78,8 +74,10 @@ class BlondeRoast extends BrewedCoffee {
 
 }
 
+// A basic cold brew drink
 class ColdBrew extends ColdDrink {
 
+    // add the cold brew to a settings group
     static group = new Group('Cold Brew', ColdDrink.group, true);
 
     constructor(name, drinkType) {
@@ -92,6 +90,7 @@ class ColdBrew extends ColdDrink {
 
 }
 
+// a generic cold brew drink with flavour added
 class FlavouredColdBrew extends ColdBrew {
 
     constructor(name, drinkType) {
@@ -100,9 +99,8 @@ class FlavouredColdBrew extends ColdBrew {
 
 }
 
+// a cold brew with milk added
 class ColdBrewWithMilk extends ColdBrew {
-
-    static group = ColdBrew.group;
 
     constructor() {
         super('cold brew with milk', ColdBrewWithMilk);
@@ -110,6 +108,7 @@ class ColdBrewWithMilk extends ColdBrew {
 
 }
 
+// a vanilla sweet cream cold brew
 class VanillaSweetCreamColdBrew extends FlavouredColdBrew {
 
     static group = ColdBrew.group;
@@ -120,19 +119,17 @@ class VanillaSweetCreamColdBrew extends FlavouredColdBrew {
     
 }
 
-class ChocolateCreamColdFoamColdBrew extends FlavouredColdBrew {
-
-    static group = ColdBrew.group;
+// a Mocha cream cold foam cold brew
+class MochaCreamColdFoamColdBrew extends FlavouredColdBrew {
 
     constructor() {
-        super('chocolate cream cold foam cold brew', ChocolateCreamColdFoamColdBrew);
+        super('Mocha cream cold foam cold brew', MochaCreamColdFoamColdBrew);
     }
     
 }
 
+// a salted cramedl cold foam cold brew
 class SaltedCaramelColdFoamColdBrew extends FlavouredColdBrew {
-
-    static group = ColdBrew.group;
 
     constructor() {
         super('salted caramel cold foam cold brew', SaltedCaramelColdFoamColdBrew);
@@ -140,9 +137,8 @@ class SaltedCaramelColdFoamColdBrew extends FlavouredColdBrew {
     
 }
 
+// an irish cream cold brew
 class IrishCreamColdBrew extends FlavouredColdBrew {
-
-    static group = ColdBrew.group;
 
     constructor() {
         super('irish cream cold brew', IrishCreamColdBrew);
@@ -150,9 +146,8 @@ class IrishCreamColdBrew extends FlavouredColdBrew {
     
 }
 
+// a pumkin cream cold brew
 class PumkinCreamColdBrew extends FlavouredColdBrew {
-
-    static group = ColdBrew.group;
 
     constructor() {
         super('pumkin cream cold brew', PumkinCreamColdBrew);
@@ -160,8 +155,10 @@ class PumkinCreamColdBrew extends FlavouredColdBrew {
     
 }
 
+// a basic iced coffee drink
 class IcedCoffee extends ColdDrink {
 
+    // a settings group for the iced coffee
     static group = new Group('Iced Coffee', ColdDrink.group, true);
 
     constructor(name, drinkType) {
@@ -174,9 +171,8 @@ class IcedCoffee extends ColdDrink {
 
 }
 
+// an iced coffee with milk added
 class IcedCoffeeWithMilk extends IcedCoffee {
-
-    static group = IcedCoffee.group;
 
     constructor() {
 
@@ -185,19 +181,3 @@ class IcedCoffeeWithMilk extends IcedCoffee {
     }
 
 }
-
-new DarkRoastMisto();
-new PikeRoastMisto();
-new BlondeRoastMisto();
-new DarkRoast();
-new PikeRoast();
-new BlondeRoast();
-new ColdBrew();
-new ColdBrewWithMilk();
-new IrishCreamColdBrew();
-new PumkinCreamColdBrew();
-new VanillaSweetCreamColdBrew();
-new SaltedCaramelColdFoamColdBrew();
-new ChocolateCreamColdFoamColdBrew();
-new IcedCoffee();
-new IcedCoffeeWithMilk();
