@@ -119,11 +119,11 @@ class VanillaSweetCreamColdBrew extends FlavouredColdBrew {
     
 }
 
-// a Mocha cream cold foam cold brew
-class MochaCreamColdFoamColdBrew extends FlavouredColdBrew {
+// a chocolate cream cold foam cold brew
+class ChocolateCreamColdFoamColdBrew extends FlavouredColdBrew {
 
     constructor() {
-        super('Mocha cream cold foam cold brew', MochaCreamColdFoamColdBrew);
+        super('chocolate cream cold foam cold brew', ChocolateCreamColdFoamColdBrew);
     }
     
 }
@@ -140,6 +140,8 @@ class SaltedCaramelColdFoamColdBrew extends FlavouredColdBrew {
 // an irish cream cold brew
 class IrishCreamColdBrew extends FlavouredColdBrew {
 
+    static season = seasons.get('holiday');
+
     constructor() {
         super('irish cream cold brew', IrishCreamColdBrew);
     }
@@ -148,6 +150,8 @@ class IrishCreamColdBrew extends FlavouredColdBrew {
 
 // a pumkin cream cold brew
 class PumkinCreamColdBrew extends FlavouredColdBrew {
+
+    static season = seasons.get('fall');
 
     constructor() {
         super('pumkin cream cold brew', PumkinCreamColdBrew);

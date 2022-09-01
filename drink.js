@@ -4,24 +4,31 @@ const drinks = new Map();
 const drinkTypes = new Map();
 
 class Drink {
+    
+    static season = seasons.get('any');
 
     constructor(name, active, drinkType) {
-        // geet the group of the drink
-        let group = drinkType.group;
-        // store the drink and drink types in their maps
-        drinks.push(name, this);
-        drinkTypes.push(name, drinkType);
-        // capitalize the words in the name of the drink
-        let words = name.split(' ');
-        let capName = '';
-        for (let word of words) {
-            capName = capName + word.charAt(0).toUpperCase() + word.substring(1).toLowerCase() + ' ';
+
+        if (Season.isValid(drinkType.season)) {
+
+
+            // geet the group of the drink
+            let group = drinkType.group;
+            // store the drink and drink types in their maps
+            drinks.push(name, this);
+            drinkTypes.push(name, drinkType);
+            // capitalize the words in the name of the drink
+            let words = name.split(' ');
+            let capName = '';
+            for (let word of words) {
+                capName = capName + word.charAt(0).toUpperCase() + word.substring(1).toLowerCase() + ' ';
+            }
+            capName = capName.substring(0, capName.length - 1);
+            // create a new checkbox setting for this drink within it's group
+            new CheckboxSetting(capName, group, active);
+            // create a customization holder to store the customizations on this drink
+            this.cusomizations = new CustomizationHolder();
         }
-        capName = capName.substring(0, capName.length-1);
-        // create a new checkbox setting for this drink within it's group
-        new CheckboxSetting(capName, group, active);
-        // create a customization holder to store the customizations on this drink
-        this.cusomizations = new CustomizationHolder();
 
     }
 

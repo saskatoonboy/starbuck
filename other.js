@@ -60,6 +60,8 @@ class CaramelAppleSpice extends SteamedAppleJuice {
 
 class PumkinSpiceCreme extends WhipSteamedMilk {
 
+    static season = seasons.get('fall');
+
     constructor() {
         super('pumkin spice creme', PumkinSpiceCreme);
     }

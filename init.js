@@ -12,7 +12,7 @@ new IrishCreamColdBrew();
 new PumkinCreamColdBrew();
 new VanillaSweetCreamColdBrew();
 new SaltedCaramelColdFoamColdBrew();
-new MochaCreamColdFoamColdBrew();
+new ChocolateCreamColdFoamColdBrew();
 new IcedCoffee();
 new IcedCoffeeWithMilk();
 

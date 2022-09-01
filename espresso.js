@@ -64,6 +64,8 @@ class BrownSugarOatAmericanoMisto extends AmericanoMisto {
 // irish cream americano misto
 class IrishCreamAmericanoMisto extends AmericanoMisto {
 
+    static season = seasons.get('holiday');
+
     constructor() {
         super('irish cream americano misto', IrishCreamAmericanoMisto);
 

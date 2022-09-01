@@ -69,6 +69,8 @@ class HoneyAlmondFlatWhite extends FlatWhite {
 // pumkin spice latte
 class PumkinSpiceLatte extends WhipLatte {
 
+    static season = seasons.get('fall');
+
     constructor() {
         super('pumkin spice latte', PumkinSpiceLatte);
     }
@@ -122,6 +124,8 @@ class CaramelMacchiato extends Macchiato {
 
 // apple crisp oat macchiato
 class AppleCrispOatMacchiato extends Macchiato {
+
+    static season = seasons.get('fall');
 
     constructor() {
         super('apple crisp oat macchiato', AppleCrispOatMacchiato);
@@ -187,6 +191,8 @@ class IcedHoneyAlmondFlatWhite extends IcedFlatWhite {
 // pumkin spice latte
 class IcedPumkinSpiceLatte extends IcedWhipLatte {
 
+    static season = seasons.get('fall');
+
     constructor() {
         super('iced pumkin spice latte', IcedPumkinSpiceLatte);
     }
@@ -240,6 +246,8 @@ class IcedCaramelMacchiato extends IcedMacchiato {
 
 // apple crisp oat macchiato
 class IcedAppleCrispOatMacchiato extends IcedMacchiato {
+
+    static season = seasons.get('fall');
 
     constructor() {
         super('iced apple crisp oat macchiato', IcedAppleCrispOatMacchiato);

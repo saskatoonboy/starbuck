@@ -24,6 +24,8 @@ class CremeFrappucino extends Frappucino {
 // pumkin spice creme frappucino
 class PumkinSpiceCremeFrappucino extends CremeFrappucino {
 
+    static season = seasons.get('fall');
+
     constructor() {
         super('pumkin spice creme frappucino', PumkinSpiceCremeFrappucino);
     }
@@ -32,6 +34,8 @@ class PumkinSpiceCremeFrappucino extends CremeFrappucino {
 
 // apple crisp oat creme frappucino
 class AppleCrispOatCremeFrappucino extends CremeFrappucino {
+
+    static season = seasons.get('fall');
 
     constructor() {
         super('apple crisp oat creme frappucino', AppleCrispOatCremeFrappucino);
@@ -152,6 +156,8 @@ class WhipCoffeeFrappucino extends CoffeeFrappucino {
 // pumkin spice frappucino
 class PumkinSpiceFrappucino extends WhipCoffeeFrappucino {
 
+    static season = seasons.get('fall');
+
     constructor() {
         super('pumkin spice frappucino', PumkinSpiceFrappucino);
     }
@@ -160,6 +166,8 @@ class PumkinSpiceFrappucino extends WhipCoffeeFrappucino {
 
 // apple crisp oat frappucino
 class AppleCrispOatFrappucino extends WhipCoffeeFrappucino {
+
+    static season = seasons.get('fall');
 
     constructor() {
         super('apple crisp oat frappucino', AppleCrispOatFrappucino);
