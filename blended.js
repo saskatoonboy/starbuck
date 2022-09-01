@@ -116,13 +116,13 @@ class WhiteChocolateCremeFrappucino extends CremeFrappucino {
 }
 
 // basic coffee frappucino
-class CoffeeFrappucino extends CoffeeFrappucino {
+class CoffeeFrappucino extends Frappucino {
 
     constructor(name, drinkType) {
 
         if (name == undefined) {
             name = 'coffee frappucino';
-            drinkType = WhipCoffeeFrappucino;
+            drinkType = CoffeeFrappucino;
         }
 
         super(name, drinkType);
