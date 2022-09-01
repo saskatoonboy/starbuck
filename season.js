@@ -10,8 +10,6 @@ class Season {
 
     static isValid(season) {
 
-        season = seasons.get(season);
-
         return season === currentSeason || season === anySeason;
 
     }
