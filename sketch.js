@@ -1,7 +1,7 @@
 
 const outputText = document.getElementById('output'); // text element where the drink will be displayed
 const drinkButton = document.getElementById('newDrinkButton'); // button for creating a new drink
-//const drinkWeights = new Map(drinks.getKeys(), settings.drinkWeights);
+const display = document.getElementById('display');
 
 settings.close(); // make sure the settings window is closed on start
 settings.collapse(); // make sure all the settings groups are collapsed on start
@@ -108,13 +108,16 @@ function recalulateWeightedMap(map, source) {
 prepareWeightedMap(weightedDrinks[0]);
 
 // generate a drink
-let drink = generateDrink();
+let drink;
+drink = generateDrink();
 
 // function to generate a drink
 function generateDrink() {
 
-  console.log(weightedRandom(weightedDrinks[0]));
+  drink = weightedRandom(weightedDrinks[0]);
+  display.innerHTML = drink.checkbox.name;
 
 }
+
 //while (!makeDrink());
 //loadSettings();
