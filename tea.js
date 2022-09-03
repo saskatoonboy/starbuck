@@ -2,9 +2,16 @@
 class BrewedTea extends HotDrink {
     
     static group = new Group('Teas', HotDrink.group, true);
+    static {
+        new AdvancedGroup('Teas', BrewedTea.group, false);
+    }
 
-    constructor(name, drinkType) {
-        super(name, drinkType);
+    constructor(name, active, drinkType) {
+        if (drinkType == undefined) {
+            drinkType = active;
+            active = false;
+        }
+        super(name, active, drinkType);
         this.customizations.setDefaultCustomization(new Water(Amount.NORMAL));
         this.customizations.setDefaultCustomization(new Temp(Temp.EXTRAHOT));
     }
@@ -70,6 +77,9 @@ class PeachTranquilityTea extends BrewedTea {
 class IcedTea extends ColdDrink {
 
     static group = new Group('Teas', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Teas', IcedTea.group, false);
+    }
 
     constructor(name, drinkType) {
         super(name, drinkType);
@@ -148,7 +158,7 @@ class HoneyCitrusMintTea extends BrewedTea {
 
     constructor() {
 
-        super('honey citrus mint tea', HoneyCitrusMintTea);
+        super('honey citrus mint tea', true, HoneyCitrusMintTea);
         this.customizations.setDefaultCustomization(new LemonadeJuice(Amount.NORMAL));
         this.customizations.setDefaultCustomization(new HoneyBlendSyrup(-1));
 
@@ -159,7 +169,7 @@ class HoneyCitrusMintTea extends BrewedTea {
 class TeaLatte extends BrewedTea {
 
     constructor(name, drinkType) {
-        super(name, drinkType);
+        super(name, true, drinkType);
         this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
         this.customizations.setDefaultCustomization(new Foam(Amount.NORMAL));
     }
@@ -223,8 +233,12 @@ class IcedBlackTea extends IcedTea {
 
 class IcedGreenTea extends IcedTea {
 
-    constructor() {
-        super('iced green tea', IcedGreenTea);
+    constructor(name, drinkType) {
+        if (name) {
+            super(name, drinkType);
+        } else {
+            super('iced green tea', IcedGreenTea);
+        }
         this.customizations.setDefaultCustomization(new GreenTea(Amount.NORMAL));
     }
 
@@ -250,8 +264,12 @@ class IcedBlackTeaLemonade extends IcedTeaLemonade {
 
 class IcedGreenTeaLemonade extends IcedTeaLemonade {
 
-    constructor() {
-        super('iced green tea lemonade', IcedGreenTeaLemonade);
+    constructor(name, drinkType) {
+        if (name) {
+            super(name, drinkType);
+        } else {
+            super('iced green tea lemonade', IcedGreenTeaLemonade);
+        }
         this.customizations.setDefaultCustomization(new GreenTea(Amount.NORMAL));
     }
 
@@ -269,7 +287,7 @@ class IcedPassionTangoTeaLemonade extends IcedTeaLemonade {
 class IcedPeachGreenTea extends IcedGreenTea {
 
     constructor() {
-        super('iced peach green tea lemonade', IcedPeachGreenTea);
+        super('iced peach green tea', IcedPeachGreenTea);
         this.customizations.setDefaultCustomization(new PeachJuice(Amount.NORMAL));
     }
 

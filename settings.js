@@ -41,14 +41,30 @@ class Settings {
         settings.button.onclick = settings.open; // set the function to call on click in the settings button to be the open function
         settings.button.innerHTML = 'Settings' // change the text in the settings button to say "Settings"
         Group.showDiv(drinkButton); // show the new drink button using a static show method in the group class
+        recalulateWeightedMap(weightedDrinks[0], weightedDrinks[1]);
+    }
 
+    openAdvanced(group) {
+        for (let group of settings.groups) {
+            group.hide(); // hide all settings groups from the user
+        }
+        settings.button.onclick = settings.open; // set the function to call on click in the settings button to be the open function
+        settings.button.innerHTML = 'Back' // change the text in the settings button to say "Settings"
+        group.show();
+        for (let child of group.children) {
+            child.show();
+        }
     }
 
     // method to open the seetings window
     open() {
 
         for (let group of settings.groups) {
-            group.show(); // show all settings groups to the user
+            if (group instanceof AdvancedGroup) {
+                group.hide();
+            } else {
+                group.show(); // show all settings groups to the user
+            }
         }
         settings.button.onclick = settings.close; // set the function to call on click in the settings button to be the close function
         settings.button.innerHTML = 'Save Settings' // change the text in the settings button to say "Save Settings"
@@ -63,13 +79,31 @@ let settings = new Settings(); // global instance of settings
 // a generic setting that can be controlled by the user
 class Setting {
 
-    constructor(name, group) {
+    constructor(name, sibling) {
 
         // add settings to the setting instance
         settings.addSetting(this);
         // create the label to descibe the setting
         this.label = document.createElement('p');
         this.label.innerHTML = name;
+        this.name = name;
+        this.sibling = sibling;
+    }
+
+    hideLabel() {
+        this.label.innerHTML = '';
+    }
+
+    showLabel() {
+        this.label.innerHTML = this.name;
+    }
+
+    setSibling(setting) {
+        this.sibling = setting;
+    }
+
+    getSibling() {
+        return this.sibling
     }
 
     // method to check if the setting is enabled
@@ -85,9 +119,9 @@ class Setting {
 // a specific setting that can be controlled by the user
 class CheckboxSetting extends Setting {
 
-    constructor(name, group, value) {
+    constructor(name, group, value, sibling) {
 
-        super(name, group);
+        super(name, sibling);
         // create the checkbox
         this.element = document.createElement('input');
         this.element.type = 'checkbox';
@@ -95,6 +129,37 @@ class CheckboxSetting extends Setting {
         group.add(this.element);
         group.add(this.label);
 
+    }
+
+    createLink(group) {
+
+        this.link = new CheckboxSetting(this.label.innerHTML, group, this.element.checked);
+        this.link.link = this;
+        this.element.id = String(settings.settings.indexOf(this));
+        this.link.element.id = String(settings.settings.indexOf(this.link));
+
+        this.element.addEventListener('change', (event) => {
+            CheckboxSetting.linkChecked(event.currentTarget);
+        });
+        this.link.element.addEventListener('change', (event) => {
+            CheckboxSetting.linkChecked(event.currentTarget);
+        });
+
+    }
+
+    static linkChecked(checkbox) {
+
+        settings.settings[parseInt(checkbox.id)].checkLink();
+
+    }
+
+    checkLink() {
+
+        if (this.link) {
+
+            this.link.element.checked = this.element.checked;
+
+        }
     }
 
     // method to check if the setting is enabled
@@ -109,9 +174,9 @@ class CheckboxSetting extends Setting {
 // a specific setting that can be set from 0-100
 class PercentageSetting extends Setting {
 
-    constructor(name, group, value) {
+    constructor(name, group, value, sibling) {
 
-        super(name, group);
+        super(name, sibling);
         // create the textbox
         this.element = document.createElement('input');
         this.element.type = 'number';
@@ -121,6 +186,39 @@ class PercentageSetting extends Setting {
         group.add(this.element);
         group.add(this.label);
 
+    }
+
+    // method to check if the setting is enabled
+    isEnabled() {
+
+        return parseInt(this.element.value) > 0;
+
+    }
+
+}
+
+// a specific setting that can be set from 0-999
+class WeightedSetting extends Setting {
+
+    constructor(name, value, sibling) {
+
+        super(name, sibling);
+        // create the textbox
+        this.element = document.createElement('input');
+        this.element.type = 'number';
+        this.element.value = value;
+        this.element.min = 0;
+        this.element.max = 999;
+
+    }
+
+    getValue() {
+        return parseInt(this.element.value);
+    }
+
+    addGroup(group) {
+        group.add(this.element);
+        group.add(this.label);
     }
 
     // method to check if the setting is enabled
@@ -153,6 +251,7 @@ class Group {
         this.title.className = 'title1';
         this.title.innerHTML = title;
         this.div.appendChild(this.title);
+        this.children = [];
 
         // create elements for the exandable groups
         if (isExpandable) {
@@ -186,7 +285,8 @@ class Group {
 
             this.parent = parent;
             this.parent.elementDiv.appendChild(this.div);
-            this.title.className = 'title'.concat((parseInt(this.parent.title.className.slice(-1))+1).toString());
+            this.parent.children.push(this);
+            this.title.className = 'title'.concat((parseInt(this.parent.title.className.slice(-1)) + 1).toString());
         } else {
             // attach the div to the document body
             document.body.appendChild(this.div);
@@ -270,7 +370,7 @@ class Group {
 
     buttonExpand() {
 
-            settings.groups[parseInt(this.id)].expand();
+        settings.groups[parseInt(this.id)].expand();
 
     }
 
@@ -285,7 +385,7 @@ class Group {
 
     buttonCollapse() {
 
-            settings.groups[parseInt(this.id)].collapse();
+        settings.groups[parseInt(this.id)].collapse();
 
 
     }
@@ -298,6 +398,46 @@ class Group {
 
         }
 
+    }
+
+    buttonAdvanced() {
+
+        settings.groups[parseInt(this.id)].advancedOpen();
+
+
+    }
+
+    advancedOpen() {
+
+        settings.openAdvanced(this);
+
+    }
+
+}
+
+class AdvancedGroup extends Group {
+
+    constructor(name, parent) {
+        if (parent instanceof AdvancedGroup) {
+
+            super(name, parent);
+            
+        } else {
+            super(name, undefined, false);
+    
+            parent.advanced = this;
+            parent.advancedButton = document.createElement('button');
+            parent.advancedButton.innerHTML = 'Advanced';
+            parent.advancedButton.className = 'expand';
+            parent.advancedButton.onclick = this.buttonAdvanced;
+            parent.advancedButton.id = String(settings.groups.length - 1);
+            this.source = parent;
+            let temp = parent.elementDiv;
+            parent.div.removeChild(temp);
+            parent.div.appendChild(parent.advancedButton);
+            parent.div.appendChild(temp);
+
+        }
     }
 
 }

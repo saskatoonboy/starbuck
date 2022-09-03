@@ -19,6 +19,10 @@ class Map {
 
     }
 
+    set(key, value) {
+        this.push(key, value);
+    }
+
     push(key, value) {
 
         if (this.keys.includes(key)) {

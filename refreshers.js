@@ -2,6 +2,9 @@
 class Refresher extends ColdDrink {
 
     static group = new Group('Refreshers', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Refreshers', Refresher.group, false);
+    }
 
     constructor(name, drinkType) {
         super(name, drinkType)

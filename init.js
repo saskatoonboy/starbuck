@@ -1,4 +1,6 @@
 
+let weightedDrinks = [new Map(), []];
+
 // initializing all brewed coffees
 new DarkRoastMisto();
 new PikeRoastMisto();
@@ -21,7 +23,6 @@ new EspressoConPanna();
 new EspressoMacchiato();
 new Americano();
 new AmericanoMisto();
-new IcedAmericano();
 new BrownSugarOatAmericanoMisto();
 new IcedAmericano();
 new IcedShakenEspresso();

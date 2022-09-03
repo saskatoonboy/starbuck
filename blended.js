@@ -3,6 +3,9 @@
 class Frappucino extends ColdDrink {
 
     static group = new Group('Blended', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Blended', Frappucino.group, false);
+    }
 
     constructor(name, drinkType) {
 

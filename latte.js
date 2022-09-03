@@ -4,6 +4,9 @@ class Latte extends HotDrink {
 
     // create a settings group for lattes
     static group = new Group('Lattes', HotDrink.group, true);
+    static {
+        new AdvancedGroup('Lattes', Latte.group, false);
+    }
 
     constructor(name, drinkType) {
 
@@ -157,6 +160,9 @@ class IcedLatte extends ColdDrink {
 
     // create a settings group for lattes
     static group = new Group('Lattes', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Lattes', IcedLatte.group, false);
+    }
 
     constructor(name, drinkType) {
 

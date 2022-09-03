@@ -2,6 +2,9 @@
 class SteamedMilk extends HotDrink {
 
     static group = new Group('Other', HotDrink.group, true);
+    static {
+        new AdvancedGroup('Other', SteamedMilk.group, false);
+    }
 
     constructor(name, drinkType) {
 
@@ -102,6 +105,9 @@ class CinnamonDolceCreme extends WhipSteamedMilk {
 class ColdMilk extends ColdDrink {
 
     static group = new Group('Other', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Other', ColdMilk.group, false);
+    }
 
     constructor() {
         super('cold milk', ColdMilk);

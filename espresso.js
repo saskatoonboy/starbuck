@@ -4,6 +4,9 @@ class Espresso extends HotDrink {
 
     // create a settings group for espressos
     static group = new Group('Espressos', HotDrink.group, true);
+    static {
+        new AdvancedGroup('Espressos', Espresso.group, false);
+    }
 
     constructor(name, drinkType) {
 
@@ -23,6 +26,9 @@ class Americano extends HotDrink {
 
     // create a settings group for americanos
     static group = new Group('Americanos', HotDrink.group, true);
+    static {
+        new AdvancedGroup('Americanos', Americano.group, false);
+    }
 
     constructor(name, drinkType) {
 
@@ -97,6 +103,9 @@ class EspressoMacchiato extends Espresso {
 class IcedAmericano extends ColdDrink {
 
     static group = new Group('Americanos', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Americanos', IcedAmericano.group, false);
+    }
 
     constructor() {
         super('iced americano', IcedAmericano);
@@ -110,6 +119,9 @@ class IcedAmericano extends ColdDrink {
 class IcedEspresso extends ColdDrink {
 
     static group = new Group('Espressos', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Espressos', IcedEspresso.group, false);
+    }
 
     constructor() {
         super('iced espresso', IcedEspresso);

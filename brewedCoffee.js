@@ -3,7 +3,10 @@
 class BrewedCoffee extends HotDrink {
 
     // add the brewed coffee to a settings group
-    static group = new Group( 'Brewed Coffee', HotDrink.group, true);
+    static group = new Group('Brewed Coffee', HotDrink.group, true);
+    static {
+        new AdvancedGroup('Brewed Coffee', BrewedCoffee.group, false);
+    }
 
     constructor(name, drinkType) {
         super(name, false, drinkType);
@@ -81,6 +84,9 @@ class ColdBrew extends ColdDrink {
 
     // add the cold brew to a settings group
     static group = new Group('Cold Brew', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Cold Brew', ColdBrew.group, false);
+    }
 
     constructor(name, drinkType) {
         if (name == undefined) {
@@ -163,6 +169,9 @@ class IcedCoffee extends ColdDrink {
 
     // a settings group for the iced coffee
     static group = new Group('Iced Coffee', ColdDrink.group, true);
+    static {
+        new AdvancedGroup('Iced Coffee', IcedCoffee.group, false);
+    }
 
     constructor(name, drinkType) {
         if (name == undefined) {

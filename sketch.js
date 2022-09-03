@@ -41,13 +41,79 @@ function randRun(func, start, increment, maxRuns) {
 
 }
 
+function weightedRandomFromPlain(map) {
+
+  map = prepareWeightedMap(map);
+  return random(map);
+
+}
+
+function prepareWeightedMap(map) {
+
+  let keys = map.getKeys();
+  let values = map.getValues();
+  let total = 0;
+
+  for (let value of values) {
+
+    total = total + value;
+
+  }
+
+  let accu = 0;
+
+  for (let key of keys) {
+
+    accu = accu + map.get(key)
+
+    map.set(key, accu/total);
+
+  }
+
+  return map;
+
+}
+
+function weightedRandom(map) {
+  let rand = Math.random();
+  let keys = map.getKeys();
+
+  for (let key of keys) {
+    if (map.get(key) >= rand) {
+      return key;
+    }
+
+  } 
+}
+
+function recalulateWeightedMap(map, source) {
+  
+  let keys = map.getKeys();
+
+  for (let index = 0; index < source.length; index ++) {
+    
+    let value = source[index].getValue();
+    if (!source[index].sibling.isEnabled()) {
+      value = 0;
+    }
+
+    map.set(keys[index], value);
+
+  }
+
+  return prepareWeightedMap(map);
+
+}
+
+prepareWeightedMap(weightedDrinks[0]);
+
 // generate a drink
 let drink = generateDrink();
 
 // function to generate a drink
 function generateDrink() {
 
-
+  console.log(weightedRandom(weightedDrinks[0]));
 
 }
 //while (!makeDrink());

@@ -25,10 +25,23 @@ class Drink {
             }
             capName = capName.substring(0, capName.length - 1);
             // create a new checkbox setting for this drink within it's group
-            new CheckboxSetting(capName, group, active);
+            this.weight = new WeightedSetting(capName, 10);
+            this.advancedGroup = new Group('', group.advanced);
+            this.checkbox = new CheckboxSetting(capName, group, active);
+            if (group.advanced) {
+                this.weight.addGroup(this.advancedGroup);
+                this.checkbox.createLink(this.advancedGroup);
+                this.weight.setSibling(this.checkbox.link);
+                this.checkbox.link.setSibling(this.weight);
+                this.weight.hideLabel();
+            }
+            
+            weightedDrinks[0].push(this, this.weight.getValue());
+            weightedDrinks[1].push(this.weight);
         }
         // create a customization holder to store the customizations on this drink
         this.customizations = new CustomizationHolder();
+        
 
     }
 

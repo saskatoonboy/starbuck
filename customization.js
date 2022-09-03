@@ -107,6 +107,11 @@ class Milk extends ValueCustomization {
     static LACTAID = 10;
     static group = new Group('Milk', Customization.group, true);
 
+    constructor() {
+        super();
+        this.name = Milk.name;
+    }
+
 }
 
 // type of espresso
@@ -118,6 +123,11 @@ class EspressoType extends ValueCustomization {
     static BLONDE = 2;
     static group = new Group('Espresso', Customization.group, true);
 
+    constructor() {
+        super();
+        this.name = EspressoType.name;
+    }
+
 }
 
 // type of shot
@@ -128,6 +138,11 @@ class ShotType extends ValueCustomization {
     static RISTRETTO = 1;
     static LONG = 2;
     static group = EspressoType.group;
+
+    constructor() {
+        super();
+        this.name = ShotType.name;
+    }
 
 }
 
@@ -142,6 +157,11 @@ class Size extends ValueCustomization {
     static TRENTA = 4;
     static group = new Group('Size', Customization.group, true);
 
+    constructor() {
+        super();
+        this.name = Size.name;
+    }
+
 }
 
 // type of shot type
@@ -149,6 +169,11 @@ class Cup extends ValueCustomization {
 
     static name = 'cup';
     static group = Size.group;
+
+    constructor() {
+        super();
+        this.name = Cup.name;
+    }
 
 }
 
@@ -164,6 +189,7 @@ class Room extends AmountCustomization {
         } else {
             super(Amount.NORMAL);
         }
+        this.name = Room.name;
 
     }
 
@@ -173,6 +199,11 @@ class Room extends AmountCustomization {
 class Foam extends AmountCustomization {
 
     static name = 'foam';
+
+    constructor() {
+        super();
+        this.name = Foam.name;
+    }
 
 }
 
@@ -192,6 +223,7 @@ class Temp extends AmountCustomization {
         } else {
             super(Temp.WARM);
         }
+        this.name = Temp.name
     }
 
 }
@@ -200,6 +232,11 @@ class Temp extends AmountCustomization {
 class Water extends AmountCustomization {
 
     static name = 'water';
+
+    constructor() {
+        super();
+        this.name = Water.name;
+    }
 
 }
 
@@ -215,12 +252,22 @@ class PumkinSpiceTopping extends Topping {
     static name = 'pumkin spice topping';
     static season = seasons.get('fall');
 
+    constructor() {
+        super();
+        this.name = PumkinSpiceTopping.name;
+    }
+
 }
 
 // amount of cinnamon dolce sprinkles
 class CinnamonDolceSprinkles extends Topping {
 
     static name = 'cinnamon dolce sprinkles';
+
+    constructor() {
+        super();
+        this.name = CinnamonDolceSprinkles.name;
+    }
 
 }
 
@@ -229,12 +276,22 @@ class CinnamonPowder extends Topping {
 
     static name = 'cinnamon powder';
 
+    constructor() {
+        super();
+        this.name = CinnamonPowder.name;
+    }
+
 }
 
 // amount of caramel crunch topping
 class CaramelCrunchTopping extends Topping {
 
     static name = 'caramel crunch topping';
+
+    constructor() {
+        super();
+        this.name = CaramelCrunchTopping.name;
+    }
 
 }
 
@@ -243,12 +300,22 @@ class CookieCrumbleTopping extends Topping {
 
     static name = 'cookie crumble topping';
 
+    constructor() {
+        super();
+        this.name = CookieCrumbleTopping.name;
+    }
+
 }
 
 // amount of caramel drizzle lining the cup
 class LineCupWithCaramelDrizzle extends Topping {
 
     static name = 'line cup with caramel drizzle';
+
+    constructor() {
+        super();
+        this.name = LineCupWithCaramelDrizzle.name;
+    }
 
 }
 
@@ -257,6 +324,11 @@ class LineCupWithMochaDrizzle extends Topping {
 
     static name = 'line cup with mocha drizzle';
 
+    constructor() {
+        super();
+        this.name = LineCupWithMochaDrizzle.name;
+    }
+
 }
 
 // amount of caramel drizzle
@@ -264,12 +336,22 @@ class CaramelDrizzle extends Topping {
 
     static name = 'caramel drizzle';
 
+    constructor() {
+        super();
+        this.name = CaramelDrizzle.name;
+    }
+
 }
 
 // amount of mocha drizzle
 class MochaDrizzle extends Topping {
 
     static name = 'mocha drizzle';
+
+    constructor() {
+        super();
+        this.name = MochaDrizzle.name;
+    }
 
 }
 
@@ -279,12 +361,22 @@ class SpicedAppleDrizzle extends Topping {
     static name = 'spiced apple drizzle';
     static season = seasons.get('fall');
 
+    constructor() {
+        super();
+        this.name = SpicedAppleDrizzle.name;
+    }
+
 }
 
 // amount of whip
 class Whip extends Topping {
 
     static name = 'whip';
+
+    constructor() {
+        super();
+        this.name = Whip.name;
+    }
 
 }
 
@@ -299,6 +391,11 @@ class VanillaSweetCreamColdFoam extends ColdFoam {
 
     static name = 'vanilla sweet cream cold foam';
 
+    constructor() {
+        super();
+        this.name = VanillaSweetCreamColdFoam.name;
+    }
+
 }
 
 // amount of pumkin cream cold foam
@@ -307,6 +404,11 @@ class PumkinCreamColdFoam extends ColdFoam {
     static name = 'pumkin cream cold foam';
     static season = seasons.get('fall');
 
+    constructor() {
+        super();
+        this.name = PumkinCreamColdFoam.name;
+    }
+
 }
 
 // amount of salted caramel cream cold foam
@@ -314,12 +416,22 @@ class SaltedCaramelCreamColdFoam extends ColdFoam {
 
     static name = 'salted caramel cream cold foam';
 
+    constructor() {
+        super();
+        this.name = SaltedCaramelCreamColdFoam.name;
+    }
+
 }
 
 // amount of chocolate cream cold foam
 class ChocolateCreamColdFoam extends ColdFoam {
 
     static name = 'chocolate cream cold foam';
+
+    constructor() {
+        super();
+        this.name = ChocolateCreamColdFoam.name;
+    }
 
 }
 
@@ -329,6 +441,11 @@ class SplashOfNonfat extends AmountCustomization {
     static name = 'splash of nonfat';
     static group = Milk.group;
 
+    constructor() {
+        super();
+        this.name = SplashOfNonfat.name;
+    }
+
 };
 
 // amount of splash of two
@@ -336,6 +453,11 @@ class SplashOfTwo extends AmountCustomization {
 
     static name = 'splash of two';
     static group = Milk.group;
+
+    constructor() {
+        super();
+        this.name = SplashOfTwo.name;
+    }
 
 }
 
@@ -345,6 +467,11 @@ class SplashOfWhole extends AmountCustomization {
     static name = 'splash of whole';
     static group = Milk.group;
 
+    constructor() {
+        super();
+        this.name = SplashOfWhole.name;
+    }
+
 }
 
 // amount of splash of cream
@@ -352,6 +479,11 @@ class SplashOfCream extends AmountCustomization {
 
     static name = 'splash of cream';
     static group = Milk.group;
+
+    constructor() {
+        super();
+        this.name = SplashOfCream.name;
+    }
 
 }
 
@@ -361,6 +493,11 @@ class SplashOfHeavyCream extends AmountCustomization {
     static name = 'splash of heavy cream';
     static group = Milk.group;
 
+    constructor() {
+        super();
+        this.name = SplashOfHeavyCream.name;
+    }
+
 }
 
 // amount of splash of soy
@@ -368,6 +505,11 @@ class SplashOfSoy extends AmountCustomization {
 
     static name = 'splash of soy';
     static group = Milk.group;
+
+    constructor() {
+        super();
+        this.name = SplashOfSoy.name;
+    }
 
 }
 
@@ -377,6 +519,11 @@ class SplashOfAlmond extends AmountCustomization {
     static name = 'splash of almond';
     static group = Milk.group;
 
+    constructor() {
+        super();
+        this.name = SplashOfAlmond.name;
+    }
+
 }
 
 // amount of splash of coconut
@@ -384,6 +531,11 @@ class SplashOfCoconut extends AmountCustomization {
 
     static name = 'splash of coconut';
     static group = Milk.group;
+
+    constructor() {
+        super();
+        this.name = SplashOfCoconut.name;
+    }
 
 }
 
@@ -393,6 +545,11 @@ class SplashOfOat extends AmountCustomization {
     static name = 'splash of oat';
     static group = Milk.group;
 
+    constructor() {
+        super();
+        this.name = SplashOfOat.name;
+    }
+
 }
 
 // amount of splash of lactaid
@@ -400,6 +557,11 @@ class SplashOfLactaid extends AmountCustomization {
 
     static name = 'splash of lactaid';
     static group = Milk.group;
+
+    constructor() {
+        super();
+        this.name = SplashOfLactaid.name;
+    }
 
 }
 
@@ -409,12 +571,22 @@ class SplashOfSweetCream extends AmountCustomization {
     static name = 'splash of sweet cream';
     static group = Milk.group;
 
+    constructor() {
+        super();
+        this.name = SplashOfSweetCream.name;
+    }
+
 }
 
 // amount of strawberry puree
 class StrawberryPuree extends AmountCustomization {
 
     static name = 'strawberry puree';
+
+    constructor() {
+        super();
+        this.name = StrawberryPuree.name;
+    }
 
 }
 
@@ -429,12 +601,22 @@ class LemonadeJuice extends Juice {
 
     static name = 'lemonade';
 
+    constructor() {
+        super();
+        this.name = LemonadeJuice.name;
+    }
+
 }
 
 // amount of apple juice
 class AppleJuice extends Juice {
 
     static name = 'apple juice';
+
+    constructor() {
+        super();
+        this.name = AppleJuice.name;
+    }
 
 }
 
@@ -443,12 +625,22 @@ class PeachJuice extends Juice {
 
     static name = 'peach juice';
 
+    constructor() {
+        super();
+        this.name = PeachJuice.name;
+    }
+
 }
 
 // amount of black tea
 class BlackTea extends Juice {
 
     static name = 'black tea';
+
+    constructor() {
+        super();
+        this.name = BlackTea.name;
+    }
 
 }
 
@@ -457,12 +649,22 @@ class GreenTea extends Juice {
 
     static name = 'green tea';
 
+    constructor() {
+        super();
+        this.name = GreenTea.name;
+    }
+
 }
 
 // amount of passion tango tea
 class PassionTangoTea extends Juice {
 
     static name = 'passion tango tea';
+
+    constructor() {
+        super();
+        this.name = PassionTangoTea.name;
+    }
 
 }
 
@@ -471,12 +673,22 @@ class StrawberryAcaiBase extends Juice {
 
     static name = 'strawberry acai base';
 
+    constructor() {
+        super();
+        this.name = StrawberryAcaiBase.name;
+    }
+
 }
 
 // amount of mango dragonfruit base
 class MangoDragonfruitBase extends Juice {
 
     static name = 'mango dragonfruit base';
+
+    constructor() {
+        super();
+        this.name = MangoDragonfruitBase.name;
+    }
 
 }
 
@@ -485,12 +697,22 @@ class PineapplePassionfruitBase extends Juice {
 
     static name = 'pineapple passionfruit base';
 
+    constructor() {
+        super();
+        this.name = PineapplePassionfruitBase.name;
+    }
+
 }
 
 // amount of ice
 class Ice extends AmountCustomization {
 
     static name = 'ice';
+
+    constructor() {
+        super();
+        this.name = Ice.name;
+    }
 
 }
 
@@ -499,6 +721,11 @@ class Shots extends NumberCustomization {
 
     static name = 'shots';
     static group = EspressoType.group;
+
+    constructor() {
+        super();
+        this.name = Shots.name;
+    }
 
 }
 
@@ -514,12 +741,22 @@ class AppleBrownSugarSyrup extends Syrup {
     static name = 'apple brown sugar syrup';
     static season = seasons.get('fall');
 
+    constructor() {
+        super();
+        this.name = AppleBrownSugarSyrup.name;
+    }
+
 }
 
 // amount of brown sugar syrup
 class BrownSugarSyrup extends Syrup {
 
     static name = 'brown sugar syrup';
+
+    constructor() {
+        super();
+        this.name = BrownSugarSyrup.name;
+    }
 
 }
 
@@ -528,12 +765,22 @@ class CaramelSyrup extends Syrup {
 
     static name = 'caramel syrup';
 
+    constructor() {
+        super();
+        this.name = CaramelSyrup.name;
+    }
+
 }
 
 // amount of cinnamon dolce syrup
 class CinnamonDolceSyrup extends Syrup {
 
     static name = 'cinnamon dolce syrup';
+
+    constructor() {
+        super();
+        this.name = CinnamonDolceSyrup.name;
+    }
 
 }
 
@@ -542,12 +789,22 @@ class HazelnutSyrup extends Syrup {
 
     static name = 'hazelnut syrup';
 
+    constructor() {
+        super();
+        this.name = HazelnutSyrup.name;
+    }
+
 }
 
 // amount of peppermint syrup
 class PeppermintSyrup extends Syrup {
 
     static name = 'peppermint syrup';
+
+    constructor() {
+        super();
+        this.name = PeppermintSyrup.name;
+    }
 
 }
 
@@ -556,12 +813,22 @@ class RaspberrySyrup extends Syrup {
 
     static name = 'raspberry syrup';
 
+    constructor() {
+        super();
+        this.name = RaspberrySyrup.name;
+    }
+
 }
 
 // amount of toasted vanilla sugar syrup
 class ToastedVanillaSyrup extends Syrup {
 
     static name = 'toasted vanilla syrup';
+
+    constructor() {
+        super();
+        this.name = ToastedVanillaSyrup.name;
+    }
 
 }
 
@@ -570,12 +837,22 @@ class ToffeeNutSyrup extends Syrup {
 
     static name = 'toffee nut syrup';
 
+    constructor() {
+        super();
+        this.name = ToffeeNutSyrup.name;
+    }
+
 }
 
 // amount of vanilla syrup
 class VanillaSyrup extends Syrup {
 
     static name = 'vanilla syrup';
+
+    constructor() {
+        super();
+        this.name = VanillaSyrup.name;
+    }
 
 }
 
@@ -584,12 +861,22 @@ class SugarFreeVanillaSyrup extends Syrup {
 
     static name = 'sugar free vanilla syrup';
 
+    constructor() {
+        super();
+        this.name = SugarFreeVanillaSyrup.name;
+    }
+
 }
 
 // amount of chai syrup
 class ChaiSyrup extends Syrup {
 
     static name = 'chai syrup';
+
+    constructor() {
+        super();
+        this.name = ChaiSyrup.name;
+    }
 
 }
 
@@ -598,12 +885,22 @@ class ClassicSyrup extends Syrup {
 
     static name = 'classic syrup';
 
+    constructor() {
+        super();
+        this.name = ClassicSyrup.name;
+    }
+
 }
 
 // amount of chai syrup
 class LiquidCaneSugarSyrup extends Syrup {
 
     static name = 'liquid cane sugar syrup';
+
+    constructor() {
+        super();
+        this.name = LiquidCaneSugarSyrup.name;
+    }
 
 }
 
@@ -612,12 +909,22 @@ class HoneyBlendSyrup extends Syrup {
 
     static name = 'honey blend syrup';
 
+    constructor() {
+        super();
+        this.name = HoneyBlendSyrup.name;
+    }
+
 }
 
 // amount of mocha sauce
 class MochaSauce extends Syrup {
 
     static name = 'mocha sauce';
+
+    constructor() {
+        super();
+        this.name = MochaSauce.name;
+    }
 
 }
 
@@ -626,12 +933,22 @@ class DarkCaramelSauce extends Syrup {
 
     static name = 'dark caramel sauce';
 
+    constructor() {
+        super();
+        this.name = DarkCaramelSauce.name;
+    }
+
 }
 
 // amount of white mocha sauce
 class WhiteMochaSauce extends Syrup {
 
     static name = 'white mocha sauce';
+
+    constructor() {
+        super();
+        this.name = WhiteMochaSauce.name;
+    }
 
 }
 
@@ -640,6 +957,11 @@ class PumkinSpiceSauce extends Syrup {
 
     static name = 'pumkin spice sauce';
     static season = seasons.get('fall');
+
+    constructor() {
+        super();
+        this.name = PumkinSpiceSauce.name;
+    }
 
 }
 
@@ -654,12 +976,22 @@ class Sugar extends Sweetner {
 
     static name = 'sugar';
 
+    constructor() {
+        super();
+        this.name = Sugar.name;
+    }
+
 }
 
 // amount of raw sugar
 class RawSugar extends Sweetner {
 
     static name = 'raw sugar';
+
+    constructor() {
+        super();
+        this.name = RawSugar.name;
+    }
 
 }
 
@@ -668,6 +1000,11 @@ class Stevia extends Sweetner {
 
     static name = 'stevia';
 
+    constructor() {
+        super();
+        this.name = Stevia.name;
+    }
+
 }
 
 // amount of splenda
@@ -675,12 +1012,22 @@ class Splenda extends Sweetner {
 
     static name = 'splenda';
 
+    constructor() {
+        super();
+        this.name = Splenda.name;
+    }
+
 }
 
 // amount of honey
 class Honey extends Sweetner {
 
     static name = 'honey';
+
+    constructor() {
+        super();
+        this.name = Honey.name;
+    }
 
 }
 
@@ -695,12 +1042,22 @@ class MatchaPowder extends Inclusion {
 
     static name = 'matcha powder';
 
+    constructor() {
+        super();
+        this.name = MatchaPowder.name;
+    }
+
 }
 
 // amount of matcha
 class VanillaBeanPowder extends Inclusion {
 
     static name = 'vanilla bean powder';
+
+    constructor() {
+        super();
+        this.name = VanillaBeanPowder.name;
+    }
 
 }
 
@@ -709,12 +1066,22 @@ class FrapChips extends Inclusion {
 
     static name = 'frap chips';
 
+    constructor() {
+        super();
+        this.name = FrapChips.name;
+    }
+
 }
 
 // amount of dragonfruit inclusions
 class DragonFruitInclusions extends Inclusion {
 
     static name = 'dragonfruit inclusions';
+
+    constructor() {
+        super();
+        this.name = DragonFruitInclusions.name;
+    }
 
 }
 
@@ -723,11 +1090,21 @@ class StrawberryInclusions extends Inclusion {
 
     static name = 'strawberry inclusions';
 
+    constructor() {
+        super();
+        this.name = StrawberryInclusions.name;
+    }
+
 }
 
 // amount of pineapple inclusions
 class PineappleInclusions extends Inclusion {
 
     static name = 'pineapple inclusions';
+
+    constructor() {
+        super();
+        this.name = PineappleInclusions.name;
+    }
 
 }
