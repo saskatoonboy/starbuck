@@ -57,7 +57,6 @@ class CustomizationHolder {
 
     // add the customization and add it to the defaults map aswell
     setDefaultCustomization(customization) {
-
         this.setCustomization(customization);
         this.defaults.push(customization.name, customization);
 

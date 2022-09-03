@@ -12,6 +12,7 @@ class Espresso extends HotDrink {
             drinkType = Espresso;
         }
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Shots(2));
 
     }
 
@@ -30,6 +31,9 @@ class Americano extends HotDrink {
             drinkType = Americano;
         }
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Shots(-1));
+        this.customizations.setDefaultCustomization(new Water(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new Temp(Temp.EXTRAHOT));
 
     }
 
@@ -45,6 +49,8 @@ class AmericanoMisto extends Americano {
             drinkType = AmericanoMisto;
         }
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
+        this.customizations.setDefaultCustomization(new Foam(Amount.NORMAL));
 
     }
 
@@ -56,18 +62,10 @@ class BrownSugarOatAmericanoMisto extends AmericanoMisto {
     constructor() {
 
         super('brown sugar oat americano misto', BrownSugarOatAmericanoMisto);
-
-    }
-
-}
-
-// irish cream americano misto
-class IrishCreamAmericanoMisto extends AmericanoMisto {
-
-    static season = seasons.get('holiday');
-
-    constructor() {
-        super('irish cream americano misto', IrishCreamAmericanoMisto);
+        this.customizations.setDefaultCustomization(new Milk(Milk.OAT));
+        this.customizations.setDefaultCustomization(new EspressoType(EspressoType.BLONDE));
+        this.customizations.setDefaultCustomization(new CinnamonPowder(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new BrownSugarSyrup(-1));
 
     }
 
@@ -78,6 +76,7 @@ class EspressoConPanna extends Espresso {
 
     constructor() {
         super('espresso con panna', EspressoConPanna);
+        this.customizations.setDefaultCustomization(new Whip(Amount.NORMAL));
     }
 
     
@@ -88,6 +87,8 @@ class EspressoMacchiato extends Espresso {
 
     constructor() {
         super('espresso macchiato', EspressoMacchiato);
+        this.customizations.setDefaultCustomization(new Foam(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
     }
 
 }
@@ -99,6 +100,8 @@ class IcedAmericano extends ColdDrink {
 
     constructor() {
         super('iced americano', IcedAmericano);
+        this.customizations.setDefaultCustomization(new Shots(-1));
+        this.customizations.setDefaultCustomization(new Water(Amount.NORMAL));
     }
 
 }
@@ -110,6 +113,7 @@ class IcedEspresso extends ColdDrink {
 
     constructor() {
         super('iced espresso', IcedEspresso);
+        this.customizations.setDefaultCustomization(new Shots(2));
     }
 
 }
@@ -125,6 +129,9 @@ class IcedShakenEspresso extends ColdDrink {
             drinkType = IcedShakenEspresso;
         }
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new ClassicSyrup(-1));
+        this.customizations.setDefaultCustomization(new Shots(-1));
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
     }
 
 }
@@ -136,6 +143,9 @@ class IcedToastedVanillaOatShakenEspresso extends IcedShakenEspresso {
 
     constructor() {
         super('iced toasted vanilla oat shaken espresso', IcedToastedVanillaOatShakenEspresso);
+        this.customizations.setDefaultCustomization(new EspressoType(EspressoType.BLONDE));
+        this.customizations.setDefaultCustomization(new ToastedVanillaSyrup(-1));
+        this.customizations.setDefaultCustomization(new Milk(Milk.OAT));
     }
 }
 
@@ -146,5 +156,9 @@ class IcedBrownSugarOatBeverageShakenEspresso extends IcedShakenEspresso {
 
     constructor() {
         super('iced brown sugar oat beverage shaken espresso', IcedBrownSugarOatBeverageShakenEspresso);
+        this.customizations.setDefaultCustomization(new EspressoType(EspressoType.BLONDE));
+        this.customizations.setDefaultCustomization(new BrownSugarSyrup(-1));
+        this.customizations.setDefaultCustomization(new Milk(Milk.OAT));
+        this.customizations.setDefaultCustomization(new CinnamonPowder(Amount.NORMAL));
     }
 }

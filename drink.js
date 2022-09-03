@@ -26,15 +26,15 @@ class Drink {
             capName = capName.substring(0, capName.length - 1);
             // create a new checkbox setting for this drink within it's group
             new CheckboxSetting(capName, group, active);
-            // create a customization holder to store the customizations on this drink
-            this.cusomizations = new CustomizationHolder();
         }
+        // create a customization holder to store the customizations on this drink
+        this.customizations = new CustomizationHolder();
 
     }
 
     // reset the cussomization holder to the default values
     reset() {
-        this.cusomizations = new CustomizationHolder(this.cusomizations.getDefaults());
+        this.customizations = new CustomizationHolder(this.cusomizations.getDefaults());
     }
 
 }
@@ -67,6 +67,8 @@ class ColdDrink extends Drink {
             active = true;
         }
         super(name, active, drinkType);
+        this.customizations.setDefaultCustomization(new Temp(Temp.COLD));
+        this.customizations.setDefaultCustomization(new Ice(Amount.NORMAL));
     }
 
 }

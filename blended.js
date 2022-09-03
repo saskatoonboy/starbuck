@@ -7,6 +7,7 @@ class Frappucino extends ColdDrink {
     constructor(name, drinkType) {
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Milk(Milk.WHOLE));
 
     }
 
@@ -18,6 +19,7 @@ class CremeFrappucino extends Frappucino {
     constructor(name, drinkType) {
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Whip(Amount.NORMAL));
 
     }
 
@@ -30,6 +32,8 @@ class PumkinSpiceCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('pumkin spice creme frappucino', PumkinSpiceCremeFrappucino);
+        this.customizations.setDefaultCustomization(new PumkinSpiceSauce(-1));
+        this.customizations.setDefaultCustomization(new PumkinSpiceTopping(Amount.NORMAL));
     }
 
 }
@@ -41,6 +45,8 @@ class AppleCrispOatCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('apple crisp oat creme frappucino', AppleCrispOatCremeFrappucino);
+        this.customizations.setDefaultCustomization(new AppleBrownSugarSyrup(-1));
+        this.customizations.setDefaultCustomization(new SpicedAppleDrizzle(Amount.NORMAL));
     }
 
 }
@@ -50,6 +56,9 @@ class ChocolateCookieCrumbleCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('chocolate cookie crumble creme frappucino', ChocolateCookieCrumbleCremeFrappucino);
+        this.customizations.setDefaultCustomization(new MochaSauce(-1));
+        this.customizations.setDefaultCustomization(new MochaDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new CookieCrumbleTopping(Amount.NORMAL));
     }
 
 }
@@ -59,6 +68,9 @@ class CaramelRibbonCrunchCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('caramel ribbon crunch creme frappucino', CaramelRibbonCrunchCremeFrappucino);
+        this.customizations.setDefaultCustomization(new DarkCaramelSauce(-1));
+        this.customizations.setDefaultCustomization(new CaramelDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new CaramelCrunchTopping(Amount.NORMAL));
     }
 
 }
@@ -68,6 +80,8 @@ class StrawberryCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('strawberry creme frappucino',StrawberryCremeFrappucino);
+        this.customizations.setDefaultCustomization(new ClassicSyrup(-1));
+        this.customizations.setDefaultCustomization(new StrawberryPuree(Amount.NORMAL));
     }
 
 }
@@ -77,6 +91,8 @@ class ChaiCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('chai creme frappucino', ChaiCremeFrappucino);
+        this.customizations.setDefaultCustomization(new ChaiSyrup(-1));
+        this.customizations.setDefaultCustomization(new CinnamonPowder(Amount.NORMAL));
     }
 
 }
@@ -86,6 +102,9 @@ class DoubleChocolatyChipCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('double chocolaty chip creme frappucino', DoubleChocolatyChipCremeFrappucino);
+        this.customizations.setDefaultCustomization(new MochaSauce(-1));
+        this.customizations.setDefaultCustomization(new MochaDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new FrapChips(-1));
     }
 
 }
@@ -95,6 +114,8 @@ class MatchaCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('matcha creme frappucino', MatchaCremeFrappucino);
+        this.customizations.setDefaultCustomization(new ClassicSyrup(-1));
+        this.customizations.setDefaultCustomization(new MatchaPowder(-1));
     }
 
 }
@@ -104,6 +125,7 @@ class VanillaBeanCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('vanilla bean creme frappucino', VanillaBeanCremeFrappucino);
+        this.customizations.setDefaultCustomization(new VanillaBeanPowder(-1));
     }
 
 }
@@ -113,6 +135,7 @@ class WhiteChocolateCremeFrappucino extends CremeFrappucino {
 
     constructor() {
         super('white chocolate creme frappucino', WhiteChocolateCremeFrappucino);
+        this.customizations.setDefaultCustomization(new WhiteMochaSauce(-1));
     }
 
 }
@@ -139,6 +162,7 @@ class EspressoFrappucino extends CoffeeFrappucino {
     constructor() {
 
         super('espresso frappucino', EspressoFrappucino);
+        this.customizations.setDefaultCustomization(new Shots(1));
 
     }
 
@@ -150,6 +174,7 @@ class WhipCoffeeFrappucino extends CoffeeFrappucino {
     constructor(name, drinkType) {
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Whip(Amount.NORMAL));
 
     }
 
@@ -162,6 +187,8 @@ class PumkinSpiceFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('pumkin spice frappucino', PumkinSpiceFrappucino);
+        this.customizations.setDefaultCustomization(new PumkinSpiceSauce(-1));
+        this.customizations.setDefaultCustomization(new PumkinSpiceTopping(Amount.NORMAL));
     }
 
 }
@@ -173,6 +200,8 @@ class AppleCrispOatFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('apple crisp oat frappucino', AppleCrispOatFrappucino);
+        this.customizations.setDefaultCustomization(new AppleBrownSugarSyrup(-1));
+        this.customizations.setDefaultCustomization(new SpicedAppleDrizzle(Amount.NORMAL));
     }
 
 }
@@ -182,6 +211,9 @@ class MochaCookieCrumbleFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('mocha cookie crumble frappucino', MochaCookieCrumbleFrappucino);
+        this.customizations.setDefaultCustomization(new MochaSauce(-1));
+        this.customizations.setDefaultCustomization(new MochaDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new CookieCrumbleTopping(Amount.NORMAL));
     }
 
 }
@@ -191,6 +223,9 @@ class CaramelRibbonCrunchFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('caramel ribbon crunch frappucino', CaramelRibbonCrunchFrappucino);
+        this.customizations.setDefaultCustomization(new DarkCaramelSauce(-1));
+        this.customizations.setDefaultCustomization(new CaramelDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new CaramelCrunchTopping(Amount.NORMAL));
     }
 
 }
@@ -200,6 +235,9 @@ class JavaChipFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('java chip frappucino', JavaChipFrappucino);
+        this.customizations.setDefaultCustomization(new MochaSauce(-1));
+        this.customizations.setDefaultCustomization(new MochaDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new FrapChips(-1));
     }
 
 }
@@ -209,6 +247,7 @@ class CafeVanillaFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('cafe vanilla frappucino', CafeVanillaFrappucino);
+        this.customizations.setDefaultCustomization(new VanillaBeanPowder(-1));
     }
 
 }
@@ -218,6 +257,7 @@ class WhiteMochaFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('white mocha frappucino', WhiteMochaFrappucino);
+        this.customizations.setDefaultCustomization(new WhiteMochaSauce(-1));
     }
 
 }
@@ -227,6 +267,7 @@ class MochaFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('mocha frappucino', MochaFrappucino);
+        this.customizations.setDefaultCustomization(new MochaSauce(-1));
     }
 
 }
@@ -236,6 +277,8 @@ class CaramelFrappucino extends WhipCoffeeFrappucino {
 
     constructor() {
         super('caramel frappucino', CaramelFrappucino);
+        this.customizations.setDefaultCustomization(new CaramelSyrup(-1));
+        this.customizations.setDefaultCustomization(new CaramelDrizzle(Amount.NORMAL));
     }
 
 }
@@ -247,6 +290,8 @@ class BlendedStrawberryLemonade extends ColdDrink {
 
     constructor() {
         super('blended strawberry lemonade', BlendedStrawberryLemonade);
+        this.customizations.setDefaultCustomization(new StrawberryPuree(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new LemonadeJuice(Amount.NORMAL));
     }
 
 }

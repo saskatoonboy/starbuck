@@ -3,7 +3,7 @@
 class Amount {
     static NONE = 0;
     static LIGHT = 1;
-    static DEFAULT = 2;
+    static NORMAL = 2;
     static EXTRA = 3;
 }
 
@@ -28,6 +28,20 @@ class Customization {
 
     }
 
+    setValue(value) {
+        this.value = value;
+    }
+
+    getValue() {
+        return this.value;
+    }
+
+    constructor(value) {
+        if (value) {
+            this.value = value;
+        }
+    }
+
 }
 
 // customizations that track a number of something
@@ -35,9 +49,12 @@ class NumberCustomization extends Customization {
 
     static group = new Group('Other', Customization.group, true);
 
-    constructor() {
-        super();
-        this.value = 0;
+    constructor(value) {
+        if (value) {
+            super(value);
+        } else {
+            super(0);
+        }
 
     }
 
@@ -48,9 +65,12 @@ class AmountCustomization extends Customization {
 
     static group = NumberCustomization.group;
 
-    constructor() {
-        super();
-        this.value = Amount.NONE;
+    constructor(value) {
+        if (value) {
+            super(value);
+        } else {
+            super(Amount.NONE);
+        }
     }
 
 }
@@ -60,9 +80,12 @@ class ValueCustomization extends Customization {
 
     static group = NumberCustomization.group;
 
-    constructor() {
-        super();
-        this.value = Amount.NONE;
+    constructor(value) {
+        if (value) {
+            super(value);
+        } else {
+            super(Amount.NONE);
+        }
     }
 
 }
@@ -86,24 +109,24 @@ class Milk extends ValueCustomization {
 
 }
 
-// type of espresso type
+// type of espresso
 class EspressoType extends ValueCustomization {
 
     static name = 'espresso type';
-    static BLONDE = 0;
+    static SIGNATURE = 0;
     static DECAF = 1;
-    static SIGNATURE = 2;
+    static BLONDE = 2;
     static group = new Group('Espresso', Customization.group, true);
 
 }
 
-// type of shot type
+// type of shot
 class ShotType extends ValueCustomization {
 
     static name = 'shot type';
-    static LONG = 0;
+    static NONE = 0;
     static RISTRETTO = 1;
-    static NONE = 2;
+    static LONG = 2;
     static group = EspressoType.group;
 
 }
@@ -112,9 +135,9 @@ class ShotType extends ValueCustomization {
 class Size extends ValueCustomization {
 
     static name = 'size';
-    static SHORT = 0;
-    static TALL = 1;
-    static GRANDE = 2;
+    static SHORT = 1;
+    static TALL = 2;
+    static GRANDE = 0;
     static VENTI = 3;
     static TRENTA = 4;
     static group = new Group('Size', Customization.group, true);
@@ -134,6 +157,16 @@ class Room extends AmountCustomization {
 
     static name = 'room';
 
+    constructor(value) {
+
+        if (value) {
+            super(value);
+        } else {
+            super(Amount.NORMAL);
+        }
+
+    }
+
 }
 
 // amount of water
@@ -149,8 +182,17 @@ class Temp extends AmountCustomization {
     static name = 'temp';
     static COLD = Amount.NONE;
     static WARM = Amount.LIGHT;
-    static HOT = Amount.DEFAULT;
+    static HOT = Amount.NORMAL;
     static EXTRAHOT = Amount.EXTRA;
+
+    constructor(value) {
+
+        if (value) {
+            super(value);
+        } else {
+            super(Temp.WARM);
+        }
+    }
 
 }
 

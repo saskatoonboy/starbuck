@@ -16,6 +16,8 @@ class CafeMisto extends BrewedCoffee {
 
     constructor(name, drinkType) {
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
+        this.customizations.setDefaultCustomization(new Foam(Amount.NORMAL));
     }
 
 }
@@ -86,6 +88,7 @@ class ColdBrew extends ColdDrink {
             drinkType = ColdBrew;
         }
         super(name, true, drinkType);
+        this.customizations.setDefaultCustomization(new Water(Amount.NORMAL));
     }
 
 }
@@ -95,6 +98,7 @@ class FlavouredColdBrew extends ColdBrew {
 
     constructor(name, drinkType) {
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new VanillaSyrup(-1));
     }
 
 }
@@ -104,6 +108,7 @@ class ColdBrewWithMilk extends ColdBrew {
 
     constructor() {
         super('cold brew with milk', ColdBrewWithMilk);
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
     }
 
 }
@@ -115,6 +120,7 @@ class VanillaSweetCreamColdBrew extends FlavouredColdBrew {
 
     constructor() {
         super('vanilla sweet cream cold brew', VanillaSweetCreamColdBrew);
+        this.customizations.setDefaultCustomization(new SplashOfSweetCream(Amount.NORMAL));
     }
     
 }
@@ -124,6 +130,7 @@ class ChocolateCreamColdFoamColdBrew extends FlavouredColdBrew {
 
     constructor() {
         super('chocolate cream cold foam cold brew', ChocolateCreamColdFoamColdBrew);
+        this.customizations.setDefaultCustomization(new ChocolateCreamColdFoam(Amount.NORMAL));
     }
     
 }
@@ -133,17 +140,7 @@ class SaltedCaramelColdFoamColdBrew extends FlavouredColdBrew {
 
     constructor() {
         super('salted caramel cold foam cold brew', SaltedCaramelColdFoamColdBrew);
-    }
-    
-}
-
-// an irish cream cold brew
-class IrishCreamColdBrew extends FlavouredColdBrew {
-
-    static season = seasons.get('holiday');
-
-    constructor() {
-        super('irish cream cold brew', IrishCreamColdBrew);
+        this.customizations.setDefaultCustomization(new SaltedCaramelCreamColdFoam(Amount.NORMAL));
     }
     
 }
@@ -155,6 +152,8 @@ class PumkinCreamColdBrew extends FlavouredColdBrew {
 
     constructor() {
         super('pumkin cream cold brew', PumkinCreamColdBrew);
+        this.customizations.setDefaultCustomization(new PumkinCreamColdFoam(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new PumkinSpiceTopping(Amount.NORMAL));
     }
     
 }
@@ -171,6 +170,7 @@ class IcedCoffee extends ColdDrink {
             drinkType = IcedCoffee;
         }
         super(name, true, drinkType);
+        this.customizations.setDefaultCustomization(new ClassicSyrup(-1));
     }
 
 }
@@ -181,6 +181,7 @@ class IcedCoffeeWithMilk extends IcedCoffee {
     constructor() {
 
         super('iced coffee with milk', IcedCoffeeWithMilk);
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
 
     }
 

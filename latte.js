@@ -13,6 +13,9 @@ class Latte extends HotDrink {
         }
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
+        this.customizations.setDefaultCustomization(new Foam(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new Shots(-1));
 
     }
 
@@ -23,6 +26,7 @@ class WhipLatte extends Latte {
     constructor(name, drinkType) {
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Whip(Amount.NORMAL));
 
     }
 
@@ -50,6 +54,8 @@ class FlatWhite extends Latte {
         }
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new ShotType(ShotType.RISTRETTO));
+        this.customizations.setDefaultCustomization(new Milk(Milk.WHOLE));
 
     }
 
@@ -61,6 +67,8 @@ class HoneyAlmondFlatWhite extends FlatWhite {
     constructor() {
 
         super('honey almond flat white', HoneyAlmondFlatWhite);
+        this.customizations.setDefaultCustomization(new HoneyBlendSyrup(-1));
+        this.customizations.setDefaultCustomization(new Milk(Milk.ALMOND));
 
     }
 
@@ -73,6 +81,8 @@ class PumkinSpiceLatte extends WhipLatte {
 
     constructor() {
         super('pumkin spice latte', PumkinSpiceLatte);
+        this.customizations.setDefaultCustomization(new PumkinSpiceSauce(-1));
+        this.customizations.setDefaultCustomization(new PumkinSpiceTopping(Amount.NORMAL));
     }
 
 }
@@ -82,6 +92,8 @@ class CinnamonDolceLatte extends WhipLatte {
 
     constructor() {
         super('cinnamon dolce latte', CinnamonDolceLatte);
+        this.customizations.setDefaultCustomization(new CinnamonDolceSyrup(-1));
+        this.customizations.setDefaultCustomization(new CinnamonDolceSprinkles(Amount.NORMAL));
     }
 
 }
@@ -91,6 +103,8 @@ class Mocha extends WhipLatte {
 
     constructor() {
         super('mocha', Mocha);
+        this.customizations.setDefaultCustomization(new MochaSauce(-1));
+        this.customizations.setDefaultCustomization(new MochaDrizzle(Amount.NORMAL));
     }
 
 }
@@ -100,6 +114,7 @@ class WhiteMocha extends WhipLatte {
 
     constructor() {
         super('white mocha', WhiteMocha);
+        this.customizations.setDefaultCustomization(new WhiteMochaSauce(-1));
     }
 
 }
@@ -118,6 +133,8 @@ class CaramelMacchiato extends Macchiato {
 
     constructor() {
         super('caramel macchiato', CaramelMacchiato);
+        this.customizations.setDefaultCustomization(new VanillaSyrup(-1));
+        this.customizations.setDefaultCustomization(new CaramelDrizzle(Amount.NORMAL));
     }
 
 }
@@ -129,6 +146,9 @@ class AppleCrispOatMacchiato extends Macchiato {
 
     constructor() {
         super('apple crisp oat macchiato', AppleCrispOatMacchiato);
+        this.customizations.setDefaultCustomization(new AppleBrownSugarSyrup(-1));
+        this.customizations.setDefaultCustomization(new SpicedAppleDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new Milk(Milk.OAT));
     }
 
 }
@@ -146,6 +166,8 @@ class IcedLatte extends ColdDrink {
         }
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Shots(-1));
+        this.customizations.setDefaultCustomization(new Milk(Milk.TWO));
 
     }
 
@@ -156,6 +178,7 @@ class IcedWhipLatte extends IcedLatte {
     constructor(name, drinkType) {
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new Whip(Amount.NORMAL));
 
     }
 
@@ -172,6 +195,8 @@ class IcedFlatWhite extends IcedLatte {
         }
 
         super(name, drinkType);
+        this.customizations.setDefaultCustomization(new ShotType(ShotType.RISTRETTO));
+        this.customizations.setDefaultCustomization(new Milk(Milk.WHOLE));
 
     }
 
@@ -183,6 +208,8 @@ class IcedHoneyAlmondFlatWhite extends IcedFlatWhite {
     constructor() {
 
         super('iced honey almond flat white', IcedHoneyAlmondFlatWhite);
+        this.customizations.setDefaultCustomization(new HoneyBlendSyrup(-1));
+        this.customizations.setDefaultCustomization(new Milk(Milk.ALMOND));
 
     }
 
@@ -195,6 +222,8 @@ class IcedPumkinSpiceLatte extends IcedWhipLatte {
 
     constructor() {
         super('iced pumkin spice latte', IcedPumkinSpiceLatte);
+        this.customizations.setDefaultCustomization(new PumkinSpiceSauce(-1));
+        this.customizations.setDefaultCustomization(new PumkinSpiceTopping(Amount.NORMAL));
     }
 
 }
@@ -204,6 +233,8 @@ class IcedCinnamonDolceLatte extends IcedWhipLatte {
 
     constructor() {
         super('iced cinnamon dolce latte', IcedCinnamonDolceLatte);
+        this.customizations.setDefaultCustomization(new CinnamonDolceSyrup(-1));
+        this.customizations.setDefaultCustomization(new CinnamonDolceSprinkles(Amount.NORMAL));
     }
 
 }
@@ -213,6 +244,8 @@ class IcedMocha extends IcedWhipLatte {
 
     constructor() {
         super('iced mocha', IcedMocha);
+        this.customizations.setDefaultCustomization(new MochaSauce(-1));
+        this.customizations.setDefaultCustomization(new MochaDrizzle(Amount.NORMAL));
     }
 
 }
@@ -222,6 +255,7 @@ class IcedWhiteMocha extends IcedWhipLatte {
 
     constructor() {
         super('iced white mocha', IcedWhiteMocha);
+        this.customizations.setDefaultCustomization(new WhiteMochaSauce(-1));
     }
 
 }
@@ -240,6 +274,8 @@ class IcedCaramelMacchiato extends IcedMacchiato {
 
     constructor() {
         super('iced caramel macchiato', IcedCaramelMacchiato);
+        this.customizations.setDefaultCustomization(new VanillaSyrup(-1));
+        this.customizations.setDefaultCustomization(new CaramelDrizzle(Amount.NORMAL));
     }
 
 }
@@ -251,6 +287,9 @@ class IcedAppleCrispOatMacchiato extends IcedMacchiato {
 
     constructor() {
         super('iced apple crisp oat macchiato', IcedAppleCrispOatMacchiato);
+        this.customizations.setDefaultCustomization(new AppleBrownSugarSyrup(-1));
+        this.customizations.setDefaultCustomization(new SpicedAppleDrizzle(Amount.NORMAL));
+        this.customizations.setDefaultCustomization(new Milk(Milk.OAT));
     }
 
 }
