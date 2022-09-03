@@ -1,9 +1,22 @@
 
 // list of all customizations
-const customizations = [Water, Temp, Shots, AppleBrownSugarSyrup, BrownSugarSyrup, CaramelSyrup, CinnamonDolceSyrup, HazelnutSyrup, 
-    PeppermintSyrup, RaspberrySyrup, ToastedVanillaSyrup, ToffeeNutSyrup, VanillaSyrup, SugarFreeVanillaSyrup, MochaSauce, 
-    DarkCaramelSauce, WhiteMochaSauce, PumkinSpiceSauce];
-const syrups = [];
+const customizations = [Milk, EspressoType, ShotType, Size, Cup, Room, Foam, Temp, Water, PumkinSpiceTopping, CinnamonDolceSprinkles, 
+    CinnamonPowder, CaramelCrunchTopping, CookieCrumbleTopping, LineCupWithCaramelDrizzle, LineCupWithMochaDrizzle, CaramelDrizzle,
+    MochaDrizzle, SpicedAppleDrizzle, Whip, VanillaSweetCreamColdFoam, PumkinCreamColdFoam, SaltedCaramelCreamColdFoam, 
+    ChocolateCreamColdFoam, SplashOfNonfat, SplashOfTwo, SplashOfWhole, SplashOfCream, SplashOfHeavyCream, SplashOfAlmond, 
+    SplashOfCoconut, SplashOfOat, SplashOfSoy, SplashOfLactaid, SplashOfSweetCream, StrawberryPuree, LemonadeJuice, AppleJuice, 
+    PeachJuice, BlackTea, GreenTea, PassionTangoTea, Ice, Shots, AppleBrownSugarSyrup, BrownSugarSyrup, CaramelSyrup, 
+    CinnamonDolceSyrup, HazelnutSyrup, PeppermintSyrup, RaspberrySyrup, ToastedVanillaSyrup, ToffeeNutSyrup, VanillaSyrup, 
+    SugarFreeVanillaSyrup, MochaSauce, DarkCaramelSauce, WhiteMochaSauce, PumkinSpiceSauce, Sugar, RawSugar, Stevia, Splenda, 
+    Honey, MatchaPowder, VanillaBeanPowder, FrapChips, DragonFruitInclusions, StrawberryInclusions, PineappleInclusions];
+
+
+// loop through the customizations and create the settings
+for (customization of customizations) {
+
+    customization.loadSetting(customization);
+
+}
 
 // class that contains all the customizations for a given drink
 class CustomizationHolder {

@@ -104,12 +104,12 @@ class Lemonade extends ColdDrink {
 
 }
 
-class AppleJuice extends ColdDrink {
+class ColdJuice extends ColdDrink {
 
     static group = ColdMilk.group;
 
     constructor() {
-        super('apple juice', AppleJuice);
+        super('apple juice', ColdJuice);
     }
 
 }

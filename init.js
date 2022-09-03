@@ -123,5 +123,5 @@ new PumkinSpiceCreme();
 new SteamedAppleJuice();
 new CaramelAppleSpice();
 new Lemonade();
-new AppleJuice();
+new ColdJuice();
 new ColdMilk();

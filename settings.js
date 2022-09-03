@@ -106,6 +106,32 @@ class CheckboxSetting extends Setting {
 
 }
 
+// a specific setting that can be set from 0-100
+class PercentageSetting extends Setting {
+
+    constructor(name, group, value) {
+
+        super(name, group);
+        // create the textbox
+        this.element = document.createElement('input');
+        this.element.type = 'number';
+        this.element.value = value;
+        this.element.min = 0;
+        this.element.max = 100;
+        group.add(this.element);
+        group.add(this.label);
+
+    }
+
+    // method to check if the setting is enabled
+    isEnabled() {
+
+        return parseInt(this.element.value) > 0;
+
+    }
+
+}
+
 // a generic group of settings containing a title and a array of elements
 class Group {
 

@@ -4,6 +4,10 @@ input[type=checkbox] {
     display:inline;
 }
 
+input[type=number] {
+    width: 40px;
+}
+
 p { 
     display: inline;
     font-size: 15px;
