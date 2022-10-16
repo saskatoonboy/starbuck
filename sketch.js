@@ -116,6 +116,7 @@ function generateDrink() {
 
   drink = weightedRandom(weightedDrinks[0]);
   display.innerHTML = drink.checkbox.name;
+  console.log(drink);
 
 }
 
